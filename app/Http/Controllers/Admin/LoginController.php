@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-
+use App\Models\Admin;
 use Illuminate\Http\Request;
 
 class LoginController
@@ -13,6 +13,11 @@ class LoginController
     }
     public function doLogin()
     {
-        return view();
+        $input = request()->only(['username', 'password']);
+        if (auth()->guard('admin')->attempt($input)) {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return "Login error";
+        }
     }
 }
