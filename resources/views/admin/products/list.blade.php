@@ -1,4 +1,5 @@
 @extends('admin.layout.master')
+@section('title', 'Product List')
 @section('content')
     <div class="content-wrapper" style="margin-left: 0;margin-right:1rem">
         <!-- Content Header (Page header) -->
