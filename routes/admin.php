@@ -6,9 +6,9 @@ use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
-route::name('admin.')->controller(LoginController::class)->group(function () {
-    Route::get('admin/login', 'login')->name('login');
-    Route::post('admin/do-login', 'doLogin')->name('do.login');
+route::name('admin.')->prefix('admin')->controller(LoginController::class)->group(function () {
+    Route::get('login', 'login')->name('login');
+    Route::post('do-login', 'doLogin')->name('do.login');
 
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
