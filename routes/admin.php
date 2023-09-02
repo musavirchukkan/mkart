@@ -13,7 +13,6 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
 
     Route::get('dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-
     route::name('products.')->prefix('products')->controller(ProductController::class)->group(function () {
         Route::get('/', 'list')->name('list');
         Route::get('create', 'create')->name('create');
