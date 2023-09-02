@@ -6,15 +6,17 @@ use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 
-route::name('admin.')->group(function () {
-    Route::get('admin/login', [LoginController::class, 'login']);
-    Route::post('admin/do-login', [LoginController::class, 'doLogin'])->name('do.login');
+route::name('admin.')->controller(LoginController::class)->group(function () {
+    Route::get('admin/login', 'login')->name('login');
+    Route::post('admin/do-login', 'doLogin')->name('do.login');
 
     Route::get('admin/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
-    route::name('products.')->prefix('admin/products')->group(function () {
-        Route::get('/', [ProductController::class, 'list'])->name('list');
-        Route::get('create', [ProductController::class, 'create'])->name('create');
-        Route::post('save', [ProductController::class, 'save'])->name('save');
+    route::name('products.')->prefix('admin/products')->controller(ProductController::class)->group(function () {
+        Route::get('/', 'list')->name('list');
+        Route::get('create', 'create')->name('create');
+        Route::post('save', 'save')->name('save');
+        Route::get('delete/{id}', 'delete')->name('delete');
+        Route::get('details/{id}', 'details')->name('details');
     });
 });

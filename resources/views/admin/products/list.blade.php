@@ -27,16 +27,24 @@
                     <div class="card">
 
                         <!-- /.card-header -->
+
                         <div class="card-header">
+
                             <h2 class="card-title">Total Products : ({{ $products->total() }})</h2>
+
                             <div class="card-tools">
                                 <ul class="nav nav-pills ml-auto">
                                     <a class="btn btn-primary" href={{ route('admin.products.create') }}>Add
                                         Product</a>
                                 </ul>
                             </div>
-
                         </div>
+
+                        @if (session()->has('message'))
+                            <p class="flashMessage pl-3 pt-2 text-success">{{ session()->get('message') }}</p>
+                        @endif
+
+
                         <div class="card-body">
                             <table class="table table-bordered">
                                 <thead>
@@ -46,7 +54,7 @@
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Favourite</th>
-                                        <th style="width: 15%">Label</th>
+                                        <th style="width: 20%">Label</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -58,8 +66,11 @@
                                             <td>{{ $product->status }}</td>
                                             <td>{{ $product->is_favourite }}</td>
                                             <td>
+                                                <a href={{ route('admin.products.details', encrypt($product->id)) }}
+                                                    class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Info</a>
                                                 <a href="" class="btn btn-info btn-sm">Edit</a>
-                                                <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                                <a href={{ route('admin.products.delete', encrypt($product->id)) }}
+                                                    class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach
