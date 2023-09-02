@@ -50,8 +50,11 @@
                                 <div class="form-group">
                                     <label for="">Category</label>
                                     <select name="category_id" class="form-control">
-                                        <option value=""></option>
-                                        <option value=""></option>
+                                        <option value="">Select an Option</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+
                                     </select>
                                 </div>
                                 <div class="form-group">
