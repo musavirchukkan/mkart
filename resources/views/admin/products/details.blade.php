@@ -47,7 +47,7 @@
                             butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terr.</p>
 
                         <hr>
-                        <h4>Available Colors</h4>
+                        {{-- <h4>Available Colors</h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-default text-center active">
                                 <input type="radio" name="color_option" id="color_option_a1" autocomplete="off" checked>
@@ -79,9 +79,9 @@
                                 <br>
                                 <i class="fas fa-circle fa-2x text-orange"></i>
                             </label>
-                        </div>
+                        </div> --}}
 
-                        <h4 class="mt-3">Size <small>Please select one</small></h4>
+                        {{-- <h4 class="mt-3">Size <small>Please select one</small></h4>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-default text-center">
                                 <input type="radio" name="color_option" id="color_option_b1" autocomplete="off">
@@ -107,41 +107,43 @@
                                 <br>
                                 Xtra-Large
                             </label>
-                        </div>
+                        </div> --}}
 
                         <div class="bg-gray py-2 px-3 mt-4">
                             <h2 class="mb-0">
-                                $80.00
+                                &#8377 {{ $product->price }}
                             </h2>
-                            <h4 class="mt-0">
+                            {{-- <h4 class="mt-0">
                                 <small>Ex Tax: $80.00 </small>
-                            </h4>
+                            </h4> --}}
                         </div>
 
                         <div class="mt-4">
-                            <div class="btn btn-primary btn-lg btn-flat">
-                                <i class="fas fa-cart-plus fa-lg mr-2"></i>
-                                Add to Cart
-                            </div>
+                            <a href={{ route('admin.products.edit', encrypt($product->id)) }}
+                                class="btn btn-info btn-lg btn-flat">
+                                <i class="fas fa-edit mr-2"></i>
+                                Edit
+                            </a>
 
-                            <div class="btn btn-default btn-lg btn-flat">
-                                <i class="fas fa-heart fa-lg mr-2"></i>
-                                Add to Wishlist
-                            </div>
+                            <a href={{ route('admin.products.delete', encrypt($product->id)) }}
+                                class="btn btn-danger btn-lg btn-flat">
+                                <i class="fas fa-trash-alt mr-2"></i>
+                                Delete
+                            </a>
                         </div>
 
                         <div class="mt-4 product-share">
                             <a href="#" class="text-gray">
-                                <i class="fab fa-facebook-square fa-2x"></i>
+                                <i class="fab fa-facebook fa-2x"></i>
                             </a>
                             <a href="#" class="text-gray">
-                                <i class="fab fa-twitter-square fa-2x"></i>
+                                <i class="fab fa-twitter fa-2x"></i>
                             </a>
                             <a href="#" class="text-gray">
-                                <i class="fas fa-envelope-square fa-2x"></i>
+                                <i class="far fa-envelope fa-2x"></i>
                             </a>
                             <a href="#" class="text-gray">
-                                <i class="fas fa-rss-square fa-2x"></i>
+                                <i class="fab fa-whatsapp fa-2x"></i>
                             </a>
                         </div>
 
@@ -150,15 +152,13 @@
                 <div class="row mt-4">
                     <nav class="w-100">
                         <div class="nav nav-tabs" id="product-tab" role="tablist">
-                            <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab"
-                                href="#product-desc" role="tab" aria-controls="product-desc"
-                                aria-selected="true">Description</a>
+                            <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc"
+                                role="tab" aria-controls="product-desc" aria-selected="true">Description</a>
                             <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab"
                                 href="#product-comments" role="tab" aria-controls="product-comments"
                                 aria-selected="false">Comments</a>
-                            <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab"
-                                href="#product-rating" role="tab" aria-controls="product-rating"
-                                aria-selected="false">Rating</a>
+                            <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating"
+                                role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
                         </div>
                     </nav>
                     <div class="tab-content p-3" id="nav-tabContent">
@@ -184,8 +184,8 @@
                             lorem, vehicula rhoncus nisl dui sit amet eros. Nulla turpis lorem, dignissim a sapien eget,
                             ultrices venenatis dolor. Curabitur vel turpis at magna elementum hendrerit vel id dui.
                             Curabitur a ex ullamcorper, ornare velit vel, tincidunt ipsum. </div>
-                        <div class="tab-pane fade" id="product-rating" role="tabpanel"
-                            aria-labelledby="product-rating-tab"> Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In
+                        <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
+                            Cras ut ipsum ornare, aliquam ipsum non, posuere elit. In
                             hac habitasse platea dictumst. Aenean elementum leo augue, id fermentum risus efficitur vel.
                             Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis. Ut molestie, purus aliquam
                             placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et erat. Etiam dignissim

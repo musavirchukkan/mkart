@@ -51,6 +51,7 @@
                                     <tr>
                                         <th style="width: 10px">#</th>
                                         <th>Name</th>
+                                        <th>Category</th>
                                         <th>Price</th>
                                         <th>Status</th>
                                         <th>Favourite</th>
@@ -62,13 +63,15 @@
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $product->name }}</td>
+                                            <td>{{ $product->category->name }}</td>
                                             <td>{{ number_format($product->price, 2) }}</td>
-                                            <td>{{ $product->status }}</td>
-                                            <td>{{ $product->is_favourite }}</td>
+                                            <td>{{ $product->status_text }}</td>
+                                            <td>{{ $product->is_favourite_text }}</td>
                                             <td>
                                                 <a href={{ route('admin.products.details', encrypt($product->id)) }}
                                                     class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Info</a>
-                                                <a href="" class="btn btn-info btn-sm">Edit</a>
+                                                <a href={{ route('admin.products.edit', encrypt($product->id)) }}
+                                                    class="btn btn-info btn-sm">Edit</a>
                                                 <a href={{ route('admin.products.delete', encrypt($product->id)) }}
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>

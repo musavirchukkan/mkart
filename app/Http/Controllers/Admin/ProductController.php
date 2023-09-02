@@ -30,11 +30,43 @@ class ProductController
             $extension = $request->image->extension();
             $filename = Str::random(6) . "_" . time() . "_product." . $extension;
             $request->image->storeAs('images/products', $filename);
+            $input['image'] = $filename;
         }
-        $input['image'] = $filename;
+
         Product::create($input);
         return redirect()->route('admin.products.list')->with('message', 'Product Saved successfully');
     }
+
+    public function details($id)
+    {
+        $product = Product::find(decrypt($id));
+        return view('admin.products.details', compact('product'));
+    }
+
+    public function edit($id)
+    {
+        $product = Product::find(decrypt($id));
+        $categories = Category::all();
+        return view('admin.products.edit', compact('product', 'categories'));
+    }
+
+    public function update(ProductSaveRequest $request)
+    {
+        $input = $request->validated();
+        $product = Product::find(decrypt($request->product_id));
+        if ($request->hasFile('image')) {
+            Storage::delete('images/products/' . $product->image);
+
+            $extension = $request->image->extension();
+            $filename = Str::random(6) . "_" . time() . "_product." . $extension;
+            $request->image->storeAs('images/products', $filename);
+            $input['image'] = $filename;
+        }
+
+        $product->update($input);
+        return redirect()->route('admin.products.list')->with('message', 'Product Updated Successfully');
+    }
+
     public function delete($id)
     {
         $product = Product::find(decrypt($id));
@@ -43,11 +75,5 @@ class ProductController
         }
         $product->delete();
         return redirect()->route('admin.products.list')->with('message', 'Product Deleted Successfully');
-    }
-
-    public function details($id)
-    {
-        $product = Product::find(decrypt($id));
-        return view('admin.products.details', compact('product'));
     }
 }

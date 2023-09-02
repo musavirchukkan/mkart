@@ -13,16 +13,20 @@ class Product extends Model
 
     protected $guarded = [];
 
-    protected function status(): Attribute
+    public function category()
     {
-        return Attribute::make(
-            get: fn (string $value) => ($value == 1) ? 'Active' : 'Inactive',
-        );
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
-    protected function isFavourite(): Attribute
+
+    public function getStatusTextAttribute()
     {
-        return Attribute::make(
-            get: fn (string $value) => ($value == 1) ? 'Yes' : 'No',
-        );
+        return ($this->status == 1) ? 'Active' : 'Inactive';
     }
+
+    public function getIsFavouriteTextAttribute()
+    {
+        return ($this->is_favourite == 1) ? 'Yes' : 'No';
+    }
+
+    protected $append = ['status_text', 'is_favourite_text'];
 }
