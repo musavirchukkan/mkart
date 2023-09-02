@@ -16,7 +16,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href={{ route('admin.dashboard') }}>Home</a></li>
-                        <li class="breadcrumb-item"><a href={{ route('admin.product.list') }}>Products</a></li>
+                        <li class="breadcrumb-item"><a href={{ route('admin.products.list') }}>Products</a></li>
                         <li class="breadcrumb-item active">Add Product</li>
                     </ol>
                 </div>
@@ -37,7 +37,8 @@
                         </div> --}}
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form>
+                        <form action={{ route('admin.products.save') }} method="POST">
+                            @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="">Name</label>
@@ -79,8 +80,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="">Is Favourite</label>
-                                    <input type="radio" value="1" name="favourite">Yes
-                                    <input type="radio" value="0" name="favourite" checked>No
+                                    <input type="radio" value="1" name="is_favourite">Yes
+                                    <input type="radio" value="0" name="is_favourite" checked>No
 
 
                                 </div>
