@@ -10,11 +10,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href={{ asset('css/fontawesome-free/css/all.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin/fontawesome-free/css/all.css') }}>
     <!-- icheck bootstrap -->
-    <link rel="stylesheet" href={{ asset('css/icheck-bootstrap.min.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin/icheck-bootstrap.min.css') }}>
     <!-- Theme style -->
-    <link rel="stylesheet" href={{ asset('css/adminlte.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin/adminlte.css') }}>
 </head>
 
 <body class="hold-transition login-page">

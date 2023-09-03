@@ -10,11 +10,11 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href={{ asset('css/fontawesome-free/css/all.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin/fontawesome-free/css/all.css') }}>
     <!-- IonIcons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href={{ asset('css/adminlte.css') }}>
+    <link rel="stylesheet" href={{ asset('css/admin/adminlte.css') }}>
 </head>
 
 <body class="hold-transition sidebar-mini">
