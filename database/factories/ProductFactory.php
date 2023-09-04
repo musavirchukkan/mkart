@@ -20,6 +20,7 @@ class ProductFactory extends Factory
             'name' => fake()->name(),
             'price' => fake()->randomFloat(3),
             'category_id' => fake()->numberBetween(1, 3),
+            'image' => fake()->imageUrl($width = 400, $height = 400),
             'status' => fake()->numberBetween(0, 1),
             'is_favourite' => fake()->numberBetween(0, 1),
         ];
