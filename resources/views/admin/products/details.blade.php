@@ -29,23 +29,19 @@
                     <div class="col-12 col-sm-6">
                         <h3 class="d-inline-block d-sm-none">{{ $product->name }}</h3>
                         <div class="col-12">
-                            <img src={{ asset('images.products/' . $product->image) }} class="product-image"
+                            <img src={{ asset('storage/images/products/' . $product->image) }} class="product-image"
                                 alt="Product Image">
                         </div>
                         <div class="col-12 product-image-thumbs">
                             <div class="product-image-thumb active"><img
-                                    src={{ asset('images.products/' . $product->image) }} alt="Product Image"></div>
-                            <div class="product-image-thumb"><img src={{ asset('image.products/' . $product->image) }}
-                                    alt="Product Image">
+                                    src={{ asset('storage/images/products/' . $product->image) }} alt="Product Image"></div>
+                            <div class="product-image-thumb"><img src={{ $product->image }} alt="Product Image">
                             </div>
-                            <div class="product-image-thumb"><img src={{ asset('image/products/' . $product->image) }}
-                                    alt="Product Image">
+                            <div class="product-image-thumb"><img src={{ $product->image }} alt="Product Image">
                             </div>
-                            <div class="product-image-thumb"><img src={{ asset('image/products/' . $product->image) }}
-                                    alt="Product Image">
+                            <div class="product-image-thumb"><img src={{ $product->image }} alt="Product Image">
                             </div>
-                            <div class="product-image-thumb"><img src={{ asset('image/products/' . $product->image) }}
-                                    alt="Product Image">
+                            <div class="product-image-thumb"><img src={{ $product->image }} alt="Product Image">
                             </div>
                         </div>
                     </div>

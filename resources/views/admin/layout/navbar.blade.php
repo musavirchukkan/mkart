@@ -8,7 +8,7 @@
             <a href={{ route('admin.dashboard') }} class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href={{ route('homepage') }} class="nav-link">Contact</a>
+            <a href={{ route('homepage') }} class="nav-link">Customer Page</a>
         </li>
     </ul>
 
