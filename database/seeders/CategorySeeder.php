@@ -22,5 +22,11 @@ class CategorySeeder extends Seeder
         Category::create([
             'name' => 'Perfumes'
         ]);
+        Category::create([
+            'name' => 'Grocery'
+        ]);
+        Category::create([
+            'name' => 'Electonics'
+        ]);
     }
 }

@@ -53,7 +53,7 @@
                                     <select name="category_id" class="form-control">
                                         <option value="">Select an Option</option>
                                         @foreach ($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                            <option value="{{ $category->category_id }}">{{ $category->name }}</option>
                                         @endforeach
 
                                     </select>
@@ -80,13 +80,7 @@
 
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Is Favourite</label>
-                                    <input type="radio" value="1" name="is_favourite">Yes
-                                    <input type="radio" value="0" name="is_favourite" checked>No
 
-
-                                </div>
                             </div>
                             <!-- /.card-body -->
 

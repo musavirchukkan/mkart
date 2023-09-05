@@ -14,6 +14,7 @@ class ProductController
     public function list()
     {
         $products = Product::latest()->paginate(15);
+        // return $products;
         return view('admin.products.list', compact('products'));
     }
 

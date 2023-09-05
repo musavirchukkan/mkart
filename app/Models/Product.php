@@ -11,11 +11,13 @@ class Product extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'product_id';
+
     protected $guarded = [];
 
     public function category()
     {
-        return $this->hasOne(Category::class, 'id', 'category_id');
+        return $this->hasOne(Category::class, 'category_id', 'category_id'); //category_table , Product_table
     }
 
     public function getStatusTextAttribute()

@@ -54,7 +54,7 @@
                                         <th>Category</th>
                                         <th>Price</th>
                                         <th>Status</th>
-                                        <th>Favourite</th>
+                                        <th>Stock</th>
                                         <th style="width: 20%">Label</th>
                                     </tr>
                                 </thead>
@@ -66,13 +66,13 @@
                                             <td>{{ $product->category->name }}</td>
                                             <td>{{ number_format($product->price, 2) }}</td>
                                             <td>{{ $product->status_text }}</td>
-                                            <td>{{ $product->is_favourite_text }}</td>
+                                            <td>{{ $product->stock }}</td>
                                             <td>
-                                                <a href={{ route('admin.products.details', encrypt($product->id)) }}
+                                                <a href={{ route('admin.products.details', encrypt($product->product_id)) }}
                                                     class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Info</a>
-                                                <a href={{ route('admin.products.edit', encrypt($product->id)) }}
+                                                <a href={{ route('admin.products.edit', encrypt($product->product_id)) }}
                                                     class="btn btn-info btn-sm">Edit</a>
-                                                <a href={{ route('admin.products.delete', encrypt($product->id)) }}
+                                                <a href={{ route('admin.products.delete', encrypt($product->product_id)) }}
                                                     class="btn btn-danger btn-sm">Delete</a>
                                             </td>
                                         </tr>
