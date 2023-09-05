@@ -14,12 +14,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            AdminSeeder::class,
+            CategorySeeder::class
+        ]);
         Product::factory(1000)->create();
-
-        // $this->call([
-        //     AdminSeeder::class,
-        //     CategorySeeder::class
-        // ]);
-
     }
 }

@@ -123,13 +123,13 @@
                         </div>
 
                         <div class="mt-4">
-                            <a href={{ route('admin.products.edit', encrypt($product->id)) }}
+                            <a href={{ route('admin.products.edit', encrypt($product->product_id)) }}
                                 class="btn btn-info btn-lg btn-flat">
                                 <i class="fas fa-edit mr-2"></i>
                                 Edit
                             </a>
 
-                            <a href={{ route('admin.products.delete', encrypt($product->id)) }}
+                            <a href={{ route('admin.products.delete', encrypt($product->product_id)) }}
                                 class="btn btn-danger btn-lg btn-flat">
                                 <i class="fas fa-trash-alt mr-2"></i>
                                 Delete

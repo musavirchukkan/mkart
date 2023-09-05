@@ -39,7 +39,7 @@
                         <!-- form start -->
                         <form action={{ route('admin.products.update') }} method="POST" enctype="multipart/form-data">
                             @csrf
-                            <input type="hidden" name="product_id" value={{ encrypt($product->id) }}>
+                            <input type="hidden" name="product_id" value={{ encrypt($product->product_id) }}>
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="">Name</label>
@@ -56,7 +56,7 @@
                                     <select name="category_id" class="form-control">
                                         <option value="">Select an Option</option>
                                         @foreach ($categories as $category)
-                                            <option @selected($category->id == $product->category_id) value="{{ $category->id }}">
+                                            <option @selected($category->category_id == $product->category_id) value="{{ $category->category_id }}">
                                                 {{ $category->name }}</option>
                                         @endforeach
 
@@ -88,14 +88,7 @@
 
 
                                 </div>
-                                <div class="form-group">
-                                    <label for="">Is Favourite</label>
-                                    <input type="radio" @checked($product->is_favourite == 1) value="1"
-                                        name="is_favourite">Yes
-                                    <input type="radio" @checked($product->is_favourite == 0) value="0" name="is_favourite">No
 
-
-                                </div>
                             </div>
                             <!-- /.card-body -->
 
