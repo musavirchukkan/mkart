@@ -27,11 +27,9 @@ return new class extends Migration
 
         Schema::create('order_lines', function (Blueprint $table) {
             $table->bigIncrements('order_line_id');
-
             $table->unsignedBigInteger('order_id')->nullable();
             $table->foreign('order_id')->references('order_id')->on('orders');
             $table->unsignedBigInteger('product_id')->nullable();
-
             $table->foreign('product_id')->references('product_id')->on('products');
             $table->integer('quantity');
             $table->double('price', 15, 2);
