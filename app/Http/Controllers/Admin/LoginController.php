@@ -10,7 +10,7 @@ class LoginController
 {
     public function login()
     {
-        return view('admin.login');
+        return view('admin.auth.login');
     }
     // public function doLogin()
     // {
@@ -31,6 +31,18 @@ class LoginController
             return "Login error";
         }
     }
+
+    public function forgotPassword()
+    {
+        return view('admin.auth.forgot_password');
+    }
+
+    public function profile()
+    {
+        $admin = Admin::all()->first();
+        return view('admin.admin_profile', compact('admin'));
+    }
+
     public function logout()
     {
         auth()->guard('admin')->logout();
