@@ -1,7 +1,15 @@
-<footer class="main-footer">
-    <strong>Copyright &copy; 2023-2024 <a href="">MKart</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-        <b>Version</b> 3.2.0
+<footer>
+    <div class="footer">
+        <div class="float-start">
+            <p>2023 &copy; MKart</p>
+        </div>
+        <div class="float-end">
+            <p>Crafted with
+                <span class="text-danger">
+                    <i class="fa fa-heart"></i> by
+                    <a href="#" class="author-footer">Mkart</a>
+                </span>
+            </p>
+        </div>
     </div>
 </footer>
