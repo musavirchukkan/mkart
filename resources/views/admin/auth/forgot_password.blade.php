@@ -13,7 +13,8 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-right">
                     <div class="auth-logo">
-                        <a href="index.html"><img src="assets/images/logo.png" alt="Logo"> Mkart</a>
+                        <a href={{ route('homepage') }}><img src={{ asset('img/Admin/images/logo.png') }} alt="Logo">
+                            Mkart</a>
                     </div>
                     <h1 class="auth-title">Forgot Password.</h1>
                     <p class="auth-subtitle mb-5">Input your email and we will send you reset password link.</p>

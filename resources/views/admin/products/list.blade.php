@@ -13,11 +13,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <ul class="nav nav-pills ml-auto float-right">
-                                <a class="btn btn-primary" href={{ route('admin.products.create') }}><i
-                                        class='bx bx-list-plus bx-sm icon'></i>Add
-                                    Product</a>
-                            </ul>
+                            {{-- <ul class="nav nav-pills ml-auto float-right"> --}}
+                            <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.create') }}><i
+                                    class='bx bx-list-plus bx-sm icon'></i>Add
+                                Product
+                            </a>
+                            {{-- </ul> --}}
                             @if (session()->has('message'))
                                 <p class="flashMessage pl-3 pt-2 text-success">{{ session()->get('message') }}</p>
                             @endif
@@ -50,9 +51,10 @@
                                                     <a href={{ route('admin.products.details', encrypt($product->product_id)) }}
                                                         class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Info</a>
                                                     <a href={{ route('admin.products.edit', encrypt($product->product_id)) }}
-                                                        class="btn btn-info btn-sm">Edit</a>
+                                                        class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Edit</a>
                                                     <a href={{ route('admin.products.delete', encrypt($product->product_id)) }}
-                                                        class="btn btn-danger btn-sm">Delete</a>
+                                                        class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i>
+                                                        Delete</a>
                                                 </td>
                                             </tr>
                                         @endforeach

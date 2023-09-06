@@ -13,8 +13,8 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex align-items-start align-items-sm-center  ">
-                            <img src="assets/images/avatar/avatar-1.png" alt="user-avatar" class="d-block rounded"
-                                height="100" width="100px" id="uploadedAvatar" />
+                            <img src={{ asset('img/Admin/images/avatar/avatar-1.png') }} alt="user-avatar"
+                                class="d-block rounded" height="100" width="100px" id="uploadedAvatar" />
                             <div class="button-wrapper">
                                 <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
                                     <span class="d-none d-sm-block">Upload new photo</span>
