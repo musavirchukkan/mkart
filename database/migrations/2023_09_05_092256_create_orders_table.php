@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->bigIncrements('order_id');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->unsignedBigInteger('address_id')->nullable();
+            $table->unsignedBigInteger('address_id');
             $table->foreign('address_id')->references('address_id')->on('users_addresses');
             $table->double('price', 15, 2);
             $table->enum('mode_of_payment', ['cod', 'Gpay', 'card']);
@@ -26,9 +26,9 @@ return new class extends Migration
 
         Schema::create('order_lines', function (Blueprint $table) {
             $table->bigIncrements('order_line_id');
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-            $table->unsignedBigInteger('product_id')->nullable();
+            $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('product_id')->on('products');
             $table->integer('quantity');
             $table->double('price', 15, 2);
