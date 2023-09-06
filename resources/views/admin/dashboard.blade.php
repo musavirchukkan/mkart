@@ -2,274 +2,199 @@
 @section('title', 'Dashboard')
 @section('content')
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard v3</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Online Store Visitors</h3>
-                                <a href="javascript:void(0);">View Report</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <p class="d-flex flex-column">
-                                    <span class="text-bold text-lg">820</span>
-                                    <span>Visitors Over Time</span>
-                                </p>
-                                <p class="ml-auto d-flex flex-column text-right">
-                                    <span class="text-success">
-                                        <i class="fas fa-arrow-up"></i> 12.5%
-                                    </span>
-                                    <span class="text-muted">Since last week</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-
-                            <div class="position-relative mb-4">
-                                <canvas id="visitors-chart" height="200"></canvas>
-                            </div>
-
-                            <div class="d-flex flex-row justify-content-end">
-                                <span class="mr-2">
-                                    <i class="fas fa-square text-primary"></i> This Week
-                                </span>
-
-                                <span>
-                                    <i class="fas fa-square text-gray"></i> Last Week
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card -->
-
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">Products</h3>
-                            <div class="card-tools">
-                                <a href="#" class="btn btn-tool btn-sm">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                                <a href="#" class="btn btn-tool btn-sm">
-                                    <i class="fas fa-bars"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body table-responsive p-0">
-                            <table class="table table-striped table-valign-middle">
-                                <thead>
-                                    <tr>
-                                        <th>Product</th>
-                                        <th>Price</th>
-                                        <th>Sales</th>
-                                        <th>More</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src={{ asset('img/default-150x150.png') }} alt="Product 1"
-                                                class="img-circle img-size-32 mr-2">
-                                            Some Product
-                                        </td>
-                                        <td>$13 USD</td>
-                                        <td>
-                                            <small class="text-success mr-1">
-                                                <i class="fas fa-arrow-up"></i>
-                                                12%
-                                            </small>
-                                            12,000 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src={{ asset('img/default-150x150.png') }} alt="Product 1"
-                                                class="img-circle img-size-32 mr-2">
-                                            Another Product
-                                        </td>
-                                        <td>$29 USD</td>
-                                        <td>
-                                            <small class="text-warning mr-1">
-                                                <i class="fas fa-arrow-down"></i>
-                                                0.5%
-                                            </small>
-                                            123,234 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src={{ asset('img/default-150x150.png') }} alt="Product 1"
-                                                class="img-circle img-size-32 mr-2">
-                                            Amazing Product
-                                        </td>
-                                        <td>$1,230 USD</td>
-                                        <td>
-                                            <small class="text-danger mr-1">
-                                                <i class="fas fa-arrow-down"></i>
-                                                3%
-                                            </small>
-                                            198 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src={{ asset('img/default-150x150.png') }} alt="Product 1"
-                                                class="img-circle img-size-32 mr-2">
-                                            Perfect Item
-                                            <span class="badge bg-danger">NEW</span>
-                                        </td>
-                                        <td>$199 USD</td>
-                                        <td>
-                                            <small class="text-success mr-1">
-                                                <i class="fas fa-arrow-up"></i>
-                                                63%
-                                            </small>
-                                            87 Sold
-                                        </td>
-                                        <td>
-                                            <a href="#" class="text-muted">
-                                                <i class="fas fa-search"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <!-- /.card -->
-                </div>
-                <!-- /.col-md-6 -->
-                <div class="col-lg-6">
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <div class="d-flex justify-content-between">
-                                <h3 class="card-title">Sales</h3>
-                                <a href="javascript:void(0);">View Report</a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex">
-                                <p class="d-flex flex-column">
-                                    <span class="text-bold text-lg">$18,230.00</span>
-                                    <span>Sales Over Time</span>
-                                </p>
-                                <p class="ml-auto d-flex flex-column text-right">
-                                    <span class="text-success">
-                                        <i class="fas fa-arrow-up"></i> 33.1%
-                                    </span>
-                                    <span class="text-muted">Since last month</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-
-                            <div class="position-relative mb-4">
-                                <canvas id="sales-chart" height="200"></canvas>
-                            </div>
-
-                            <div class="d-flex flex-row justify-content-end">
-                                <span class="mr-2">
-                                    <i class="fas fa-square text-primary"></i> This year
-                                </span>
-
-                                <span>
-                                    <i class="fas fa-square text-gray"></i> Last year
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.card -->
-
-                    <div class="card">
-                        <div class="card-header border-0">
-                            <h3 class="card-title">Online Store Overview</h3>
-                            <div class="card-tools">
-                                <a href="#" class="btn btn-sm btn-tool">
-                                    <i class="fas fa-download"></i>
-                                </a>
-                                <a href="#" class="btn btn-sm btn-tool">
-                                    <i class="fas fa-bars"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                                <p class="text-success text-xl">
-                                    <i class="ion ion-ios-refresh-empty"></i>
-                                </p>
-                                <p class="d-flex flex-column text-right">
-                                    <span class="font-weight-bold">
-                                        <i class="ion ion-android-arrow-up text-success"></i> 12%
-                                    </span>
-                                    <span class="text-muted">CONVERSION RATE</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-                            <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
-                                <p class="text-warning text-xl">
-                                    <i class="ion ion-ios-cart-outline"></i>
-                                </p>
-                                <p class="d-flex flex-column text-right">
-                                    <span class="font-weight-bold">
-                                        <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
-                                    </span>
-                                    <span class="text-muted">SALES RATE</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-                            <div class="d-flex justify-content-between align-items-center mb-0">
-                                <p class="text-danger text-xl">
-                                    <i class="ion ion-ios-people-outline"></i>
-                                </p>
-                                <p class="d-flex flex-column text-right">
-                                    <span class="font-weight-bold">
-                                        <i class="ion ion-android-arrow-down text-danger"></i> 1%
-                                    </span>
-                                    <span class="text-muted">REGISTRATION RATE</span>
-                                </p>
-                            </div>
-                            <!-- /.d-flex -->
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-md-6 -->
+    <div class="content-start transition">
+        <div class="container-fluid dashboard">
+            <div class="content-header">
+                <h1>Dashboard</h1>
+                <p></p>
             </div>
-            <!-- /.row -->
+
+            <div class="row">
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 d-flex align-items-center">
+                                    <i class="fas fa-inbox icon-home bg-primary text-light"></i>
+                                </div>
+                                <div class="col-8">
+                                    <p>Revenue</p>
+                                    <h5>$65</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 d-flex align-items-center">
+                                    <i class="fas fa-clipboard-list icon-home bg-success text-light"></i>
+                                </div>
+                                <div class="col-8">
+                                    <p>Orders</p>
+                                    <h5>3000</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 d-flex align-items-center">
+                                    <i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
+                                </div>
+                                <div class="col-8">
+                                    <p>Sales</p>
+                                    <h5>5500</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-4 d-flex align-items-center">
+                                    <i class="fas fa-id-card  icon-home bg-warning text-light"></i>
+                                </div>
+                                <div class="col-8">
+                                    <p>Employes</p>
+                                    <h5>256</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                        </div>
+                        <div class="card-body">
+                            <div id="columnchart"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Recent Messages</h4>
+                        </div>
+                        <div class="card-body pb-4">
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img src="assets/images/message/4.jpg">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">Hank Schrader</h5>
+                                    <h6 class="text-muted mb-0">@johnducky</h6>
+                                </div>
+                            </div>
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img src="assets/images/message/5.jpg">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">Dean Winchester</h5>
+                                    <h6 class="text-muted mb-0">@imdean</h6>
+                                </div>
+                            </div>
+                            <div class="recent-message d-flex px-4 py-3">
+                                <div class="avatar avatar-lg">
+                                    <img src="assets/images/message/1.jpg">
+                                </div>
+                                <div class="name ms-4">
+                                    <h5 class="mb-1">John Doe</h5>
+                                    <h6 class="text-muted mb-0">@Doejohn</h6>
+                                </div>
+                            </div>
+                            <div class="px-4">
+                                <button class='btn btn-block btn-xl btn-primary font-bold mt-3'>Start
+                                    Conversation</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Latest Transaction</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Order Id</th>
+                                            <th scope="col">Billing Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Payment Status</th>
+                                            <th scope="col">Payment Method</th>
+                                            <th scope="col">View Details</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">#SK2548 </th>
+                                            <td>Neal Matthews</td>
+                                            <td>07 Oct, 2022</td>
+                                            <td>$400</td>
+                                            <td><span class="text-success">Paid</span></td>
+                                            <td>Mastercard</td>
+                                            <td><button class="btn btn-primary">View Details</button></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">#SK2548 </th>
+                                            <td>Neal Matthews</td>
+                                            <td>07 Oct, 2022</td>
+                                            <td>$400</td>
+                                            <td><span class="text-success">Paid</span></td>
+                                            <td>Visa</td>
+                                            <td><button class="btn btn-primary">View Details</button></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">#SK2548 </th>
+                                            <td>Neal Matthews</td>
+                                            <td>07 Oct, 2022</td>
+                                            <td>$400</td>
+                                            <td><span class="text-danger">Chargeback</span></td>
+                                            <td>Paypal</td>
+                                            <td><button class="btn btn-primary">View Details</button></td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">#SK2548 </th>
+                                            <td>Neal Matthews</td>
+                                            <td>07 Oct, 2022</td>
+                                            <td>$400</td>
+                                            <td><span class="text-warning">Refund</span></td>
+                                            <td>Visa</td>
+                                            <td><button class="btn btn-primary">View Details</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-        <!-- /.container-fluid -->
     </div>
     <!-- /.content -->
 @endsection

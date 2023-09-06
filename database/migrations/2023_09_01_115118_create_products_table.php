@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreign('category_id')->references('category_id')->on('categories');
             $table->string('image')->nullable();
             $table->longText('description');
-            $table->integer('stock')->nullable();
+            $table->integer('stock')->default(0);
             $table->boolean('status')->comment('1:Active,0:Inactive')->default(1);
             $table->timestamps();
         });
