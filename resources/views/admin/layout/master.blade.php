@@ -68,7 +68,7 @@
     <!-- General JS Scripts -->
     <script src={{ asset('js/Admin/atrana.js') }}></script>
 
-    {{-- @include('admin.layout.dashuiscript') --}}
+
 
     <!-- JS Libraies -->
     <script src={{ asset('lib/modules/jquery/jquery.min.js') }}></script>
@@ -82,6 +82,13 @@
     <!-- Template JS File -->
     <script src={{ asset('js/Admin/script.js') }}></script>
     <script src={{ asset('js/Admin/custom.js') }}></script>
+
+    <script src="{{ asset('lib/dropzone/dist/min/dropzone.min.js') }}"></script>
+    <script src="{{ asset('lib/-yaireo/tagify/dist/tagify.min.js') }}"></script>
+    <script src="{{ asset('lib/simplebar/dist/simplebar.min.js') }}"></script>
+    <!-- Theme JS -->
+    <script src="{{ asset('js/Admin/theme.min.js') }}"></script>
+
 </body>
 
 </html>
