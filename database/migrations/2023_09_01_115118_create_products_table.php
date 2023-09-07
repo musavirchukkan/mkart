@@ -14,7 +14,16 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('category_id');
+            $table->string('category_name');
+            $table->string('image')->nullable();
+            $table->timestamps();
+        });
+
+        Schema::create('sub_categories', function (Blueprint $table) {
+            $table->bigIncrements('sub_category_id');
             $table->string('name');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('category_id')->on('categories');
             $table->string('image')->nullable();
             $table->timestamps();
         });
@@ -22,14 +31,18 @@ return new class extends Migration
 
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('product_id');
-            $table->string('name');
+            $table->string('product_name');
             $table->double('price', 15, 2);
+            $table->double('sale_price', 15, 2);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->string('main_image')->nullable();
             $table->string('image')->nullable();
             $table->longText('description');
+            $table->string('tags');
             $table->integer('stock')->default(0);
-            $table->boolean('status')->comment('1:Active,0:Inactive')->default(1);
+            $table->boolean('is_stock')->comment('1:In Stock,0:Out Stock')->default(0);
+            $table->enum('status', ['Published', 'Unpublished', 'Draft']);
             $table->timestamps();
         });
     }

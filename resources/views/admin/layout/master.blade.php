@@ -9,6 +9,14 @@
 
     <title>@yield('title') | Mkart</title>
 
+
+    <link href="{{ asset('lib/simplebar/dist/simplebar.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/css/theme.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/dropzone/dist/dropzone.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/-yaireo/tagify/dist/tagify.css') }}" rel="stylesheet">
+    <link href="{{ asset('lib/-mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet">
+
+
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href={{ asset('lib/modules/bootstrap-5.1.3/css/bootstrap.css') }}>
     <!-- Style CSS -->
@@ -21,6 +29,8 @@
     <link rel="stylesheet" href={{ asset('lib/modules/apexcharts/apexcharts.css') }}>
     <!-- Boostrap Icon-->
     <link rel="stylesheet" href={{ asset('lib/modules/bootstrap-icons/bootstrap-icons.css') }}>
+
+
 </head>
 
 <body>
@@ -57,6 +67,8 @@
 
     <!-- General JS Scripts -->
     <script src={{ asset('js/Admin/atrana.js') }}></script>
+
+    {{-- @include('admin.layout.dashuiscript') --}}
 
     <!-- JS Libraies -->
     <script src={{ asset('lib/modules/jquery/jquery.min.js') }}></script>
