@@ -23,10 +23,14 @@ class ProductController
         $categories = Category::all();
         return view('admin.products.create', compact('categories'));
     }
-
     public function save(ProductSaveRequest $request)
     {
+
         $input = $request->validated();
+
+        return $request;
+
+
         if ($request->hasFile('image')) {
             $extension = $request->image->extension();
             $filename = Str::random(6) . "_" . time() . "_product." . $extension;
