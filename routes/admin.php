@@ -25,6 +25,7 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
             Route::get('edit/{id}', 'edit')->name('edit');
             Route::post('update', 'update')->name('update');
             Route::get('delete/{id}', 'delete')->name('delete');
+            Route::get('categories', 'categories')->name('categories');
         });
     });
 });

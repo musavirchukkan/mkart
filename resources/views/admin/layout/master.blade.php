@@ -9,12 +9,13 @@
 
     <title>@yield('title') | Mkart</title>
 
-
+    <link rel="icon" type="image/x-icon" href={{ asset('img/Admin/images/logo.png') }}>
     <link href="{{ asset('lib/simplebar/dist/simplebar.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin/css/theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/dropzone/dist/dropzone.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/-yaireo/tagify/dist/tagify.css') }}" rel="stylesheet">
-    <link href="{{ asset('lib/-mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('lib/-mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
 
 
     <!-- Bootstrap CSS-->
@@ -30,6 +31,8 @@
     <!-- Boostrap Icon-->
     <link rel="stylesheet" href={{ asset('lib/modules/bootstrap-icons/bootstrap-icons.css') }}>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
 
 </head>
 
@@ -76,9 +79,9 @@
     <script src={{ asset('lib/modules/popper/popper.min.js') }}></script>
 
     <!-- Chart Js -->
-    <script src={{ asset('lib/modules/apexcharts/apexcharts.js') }}></script>
-    <script src={{ asset('js/Admin/ui-apexcharts.js') }}></script>
-
+    {{-- <script src={{ asset('lib/modules/apexcharts/apexcharts.js') }}></script> --}}
+    {{-- <script src={{ asset('js/Admin/ui-apexcharts.js') }}></script> --}}
+    <script src="{{ asset('lib/feather-icons/dist/feather.min.js') }}"></script>
     <!-- Template JS File -->
     <script src={{ asset('js/Admin/script.js') }}></script>
     <script src={{ asset('js/Admin/custom.js') }}></script>
@@ -88,7 +91,10 @@
     <script src="{{ asset('lib/simplebar/dist/simplebar.min.js') }}"></script>
     <!-- Theme JS -->
     <script src="{{ asset('js/Admin/theme.min.js') }}"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src={{ asset('js/scripts.js') }}></script>
 </body>
 
 </html>

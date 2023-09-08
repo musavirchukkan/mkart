@@ -10,73 +10,73 @@
             </div>
 
             <div class="row">
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4 d-flex align-items-center">
-                                    <i class="fas fa-inbox icon-home bg-primary text-light"></i>
-                                </div>
-                                <div class="col-8">
-                                    <p>Revenue</p>
-                                    <h5>$65</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4 d-flex align-items-center">
-                                    <i class="fas fa-clipboard-list icon-home bg-success text-light"></i>
-                                </div>
-                                <div class="col-8">
-                                    <p>Orders</p>
-                                    <h5>3000</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4 d-flex align-items-center">
-                                    <i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
-                                </div>
-                                <div class="col-8">
-                                    <p>Sales</p>
-                                    <h5>5500</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4 d-flex align-items-center">
-                                    <i class="fas fa-id-card  icon-home bg-warning text-light"></i>
-                                </div>
-                                <div class="col-8">
-                                    <p>Employes</p>
-                                    <h5>256</h5>
+                <div class="pb-2 row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 d-flex align-items-center">
+                                        <i class="fas fa-inbox icon-home bg-primary text-light"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Revenue</p>
+                                        <h5>$65</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 d-flex align-items-center">
+                                        <i class="fas fa-clipboard-list icon-home bg-success text-light"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Orders</p>
+                                        <h5>3000</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="col-md-6">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 d-flex align-items-center">
+                                        <i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Sales</p>
+                                        <h5>5500</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 d-flex align-items-center">
+                                        <i class="fas fa-id-card  icon-home bg-warning text-light"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Employes</p>
+                                        <h5>256</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {{-- <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                         </div>
@@ -84,9 +84,9 @@
                             <div id="columnchart"></div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
-                <div class="col-md-6">
+                {{-- <div class="col-md-6">
                     <div class="card">
                         <div class="card-header">
                             <h4>Recent Messages</h4>
@@ -125,7 +125,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-md-12">
                     <div class="card">
