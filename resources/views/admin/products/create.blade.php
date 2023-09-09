@@ -38,13 +38,15 @@
                                                 <label class="form-label">Product Description</label>
                                                 {{-- <div class="pb-8" id="editor"></div>
                                                 <input type="hidden" name="description" id="quillContent"> --}}
-                                                <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                                <textarea class="form-control" name="description" id="exampleFormControlTextarea1" rows="6"
+                                                    placeholder="Enter Product Description"></textarea>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- card -->
-                                <div class="card mb-4">
+                                <div class="card
+                                                    mb-4">
                                     <!-- card body -->
                                     <div class="card-body">
                                         <div>

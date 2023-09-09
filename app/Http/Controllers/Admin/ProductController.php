@@ -13,7 +13,7 @@ class ProductController
 {
     public function list()
     {
-        $products = Product::latest()->paginate(15);
+        $products = Product::all();
         // return $products;
         return view('admin.products.list', compact('products'));
     }
@@ -28,14 +28,13 @@ class ProductController
 
         $input = $request->validated();
 
-        return $request;
 
 
-        if ($request->hasFile('image')) {
+        if ($request->hasFile('main_image')) {
             $extension = $request->image->extension();
             $filename = Str::random(6) . "_" . time() . "_product." . $extension;
             $request->image->storeAs('images/products', $filename);
-            $input['image'] = $filename;
+            $input['main_image'] = $filename;
         }
 
         Product::create($input);
@@ -80,5 +79,12 @@ class ProductController
         }
         $product->delete();
         return redirect()->route('admin.products.list')->with('message', 'Product Deleted Successfully');
+    }
+
+    public function categories()
+    {
+        $categories = Category::all();
+
+        return view('admin.products.categories', compact('categories'));
     }
 }

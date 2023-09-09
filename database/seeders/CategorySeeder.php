@@ -14,19 +14,19 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         Category::create([
-            'name' => 'Mobile'
+            'category_name' => 'Mobile'
         ]);
         Category::create([
-            'name' => 'Fashion'
+            'category_name' => 'Fashion'
         ]);
         Category::create([
-            'name' => 'Perfumes'
+            'category_name' => 'Perfumes'
         ]);
         Category::create([
-            'name' => 'Grocery'
+            'category_name' => 'Grocery'
         ]);
         Category::create([
-            'name' => 'Electonics'
+            'category_name' => 'Electonics'
         ]);
     }
 }
