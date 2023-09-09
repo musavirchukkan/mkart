@@ -14,8 +14,9 @@ class ProductController
     public function list()
     {
         $products = Product::all();
+        $categories = Category::all();
         // return $products;
-        return view('admin.products.list', compact('products'));
+        return view('admin.products.list', compact('products','categories'));
     }
 
     public function create()

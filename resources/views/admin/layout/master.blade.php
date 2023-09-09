@@ -14,12 +14,13 @@
     <link href="{{ asset('css/admin/css/theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/dropzone/dist/dropzone.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/-yaireo/tagify/dist/tagify.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('lib/-mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('lib/-mdi/font/css/materialdesignicons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
 
 
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href={{ asset('lib/modules/bootstrap-5.1.3/css/bootstrap.css') }}>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <!-- Style CSS -->
     <link rel="stylesheet" href={{ asset('css/admin/css/style.css') }}>
     <!-- FontAwesome CSS-->
@@ -33,6 +34,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
 </head>
 
@@ -58,6 +60,7 @@
     @include('admin.layout.footer')
 
 
+
     <!-- Preloader -->
     <div class="loader">
         <div class="spinner-border text-light" role="status">
@@ -75,7 +78,9 @@
 
     <!-- JS Libraies -->
     <script src={{ asset('lib/modules/jquery/jquery.min.js') }}></script>
-    <script src={{ asset('lib/modules/bootstrap-5.1.3/js/bootstrap.bundle.min.js') }}></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
     <script src={{ asset('lib/modules/popper/popper.min.js') }}></script>
 
     <!-- Chart Js -->
@@ -94,6 +99,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script src={{ asset('js/scripts.js') }}></script>
 </body>
 

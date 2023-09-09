@@ -14,10 +14,14 @@
                     <div class="card">
                         <div class="card-header">
                             {{-- <ul class="nav nav-pills ml-auto float-right"> --}}
-                            <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.create') }}><i
+                            {{-- <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.create') }}><i
                                     class='bx bx-list-plus bx-sm icon'></i>Add
                                 Product
-                            </a>
+                            </a> --}}
+                            <button type="button" class="btn btn-primary float-right d-flex" data-bs-toggle="modal"
+                                data-bs-target="#productModal">
+                                <i class='bx bx-list-plus bx-sm icon'></i>Add Product
+                            </button>
                             {{-- <button type="button" class="btn btn-primary float-right d-flex" data-toggle="modal"
                                 data-target="#newModal">Add
                                 Product</button> --}}
@@ -117,6 +121,11 @@
         </div>
     </div>
     {{-- modal --}}
+    <!-- Button trigger modal -->
 
+
+    <!-- Modal -->
+
+@include('admin.layout.modal')
 
 @endsection
