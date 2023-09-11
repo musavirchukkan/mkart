@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,13 +22,41 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
 
         route::name('products.')->prefix('products')->controller(ProductController::class)->group(function () {
             Route::get('/', 'list')->name('list');
-            Route::get('create', 'create')->name('create');
-            Route::post('save', 'save')->name('save');
+            // Route::get('create', 'create')->name('create');
+            Route::post('/save', 'save')->name('save');
             Route::get('details/{id}', 'details')->name('details');
             Route::get('edit/{id}', 'edit')->name('edit');
             Route::post('update', 'update')->name('update');
-            Route::get('delete/{id}', 'delete')->name('delete');
-            Route::get('categories', 'categories')->name('categories');
+            Route::delete('delete/{id}', 'delete')->name('delete');
+        });
+
+
+
+        route::name('categories.')->prefix('categories')->controller(CategoryController::class)->group(function () {
+            Route::get('/', 'categories')->name('list');
+            Route::post('/save', 'save')->name('save');
+            Route::get('details/{id}', 'details')->name('details');
+            Route::post('update', 'update')->name('edit');
+            Route::delete('delte/{id}', 'delete')->name('delete');
+
+
+        });
+
+
+        route::name('orders.')->prefix('orders')->controller(OrderController::class)->group(function () {
+            Route::get('/', 'orders')->name('list');
+            Route::get('details/{id}', 'details')->name('details');
+            Route::post('update', 'update')->name('edit');
+            Route::delete('delte/{id}', 'delete')->name('delete');
+
+        });
+
+
+        route::name('users.')->prefix('customers')->controller(CustomerController::class)->group(function () {
+            Route::get('/', 'customers')->name('list');
+            Route::get('details/{id}', 'details')->name('details');
+            Route::post('update', 'update')->name('edit');
+            Route::delete('delte/{id}', 'delete')->name('delete');
         });
     });
 });

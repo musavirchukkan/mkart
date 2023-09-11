@@ -12,42 +12,35 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header">
 
-                            {{-- <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.categories') }}>
-                                <i class='bx bx-list-plus bx-sm icon'></i>Add
-                                Category
-                            </a> --}}
-                            <button type="button" class="btn btn-primary float-right d-flex" data-bs-toggle="modal"
-                                data-bs-target="#categoryModal"><i class='bx bx-list-plus bx-sm icon'></i>
-                                Add Category
-                            </button>
 
-                            @if (session()->has('message'))
-                                <p class="flashMessage pl-3 pt-2 text-success">{{ session()->get('message') }}</p>
-                            @endif
-                        </div>
-
-                        <table id="category-list" class="table table-striped" style="width:100%">
+                        <table id="order-list" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Image</th>
-                                    <th scope="col">Category Name</th>
-                                    <th scope="col">Total Products</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">Order No</th>
+                                            <th scope="col">Billing Name</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Payment Status</th>
+                                            <th scope="col">Payment Method</th>
+                                            <th scope="col">Actions</th>
 
 
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($categories as $category)
+                                @foreach ($orders as $order)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>{{ $category->category_image }}</td>
-                                        <td>{{ $category->category_name }}</td>
-                                        <td>{{ $category->category_name }}</td>
+                                        <td>#MK0{{ $order->order_id }}</td>
+                                        <td>{{ $order->billing_name}}</td>
+                                        <td>{{ $order->created_at }}</td>
+                                        <td>{{ $order->price }}</td>
+                                        <td>{{ $order->payment_status }}</td>
+                                        <td>{{ $order->mode_of_payment }}</td>
+                                        <td>{{ $order->status }}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <a class="btn btn-icon btn-sm btn-ghost rounded-circle"
@@ -58,16 +51,14 @@
 
                                                 <ul class="dropdown-menu">
                                                     <li><a class="dropdown-item d-flex align-items-center"
-                                                            href={{ route('admin.categories.details', encrypt($category->category_id)) }}>Info</a>
+                                                            href={{ route('admin.orders.details', encrypt($order->order_id)) }}>Info</a>
                                                     </li>
                                                     <li><a class="dropdown-item d-flex align-items-center"
-                                                            href={{ route('admin.categories.edit', encrypt($category->category_id)) }}>Edit</a>
+                                                            href={{ route('admin.orders.edit', encrypt($order->order_id)) }}>Edit</a>
                                                     </li>
-                                                    {{-- <li><a class="dropdown-item d-flex align-items-center"
-                                                            href="{{ route('admin.products.delete', encrypt($product->product_id)) }}">Delete
-                                                        </a> --}}
 
-                                                        <form method="POST" action="{{ route('admin.categories.delete', encrypt($category->category_id)) }}">
+
+                                                        <form method="POST" action="{{ route('admin.orders.delete', encrypt($order->order_id)) }}">
                                                             @csrf
                                                             <input name="_method" type="hidden" value="DELETE">
                                                             <button type="submit" class="dropdown-item d-flex align-items-center confirm-delete" >Delete</button>
@@ -102,8 +93,6 @@
 
     </div>
     </div>
-{{-- modal --}}
-@include('admin.layout.modal')
-{{-- end modal --}}
+
 
 @endsection
