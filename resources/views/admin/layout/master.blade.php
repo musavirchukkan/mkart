@@ -90,8 +90,7 @@
     {{-- <script src={{ asset('js/Admin/ui-apexcharts.js') }}></script> --}}
     <script src="{{ asset('lib/feather-icons/dist/feather.min.js') }}"></script>
     <!-- Template JS File -->
-    <script src={{ asset('js/Admin/script.js') }}></script>
-    <script src={{ asset('js/Admin/custom.js') }}></script>
+
 
     <script src="{{ asset('lib/dropzone/dist/min/dropzone.min.js') }}"></script>
     <script src="{{ asset('lib/-yaireo/tagify/dist/tagify.min.js') }}"></script>
@@ -103,9 +102,14 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script src={{ asset('js/scripts.js') }}></script>
     <script src="{{ asset('lib/feather-icons/dist/feather.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+
+
+    <script src={{ asset('js/Admin/script.js') }}></script>
+    <script src={{ asset('js/Admin/custom.js') }}></script>
 
 
     <script src={{ asset('js/scripts.js') }}></script>
