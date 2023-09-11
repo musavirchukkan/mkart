@@ -31,10 +31,12 @@
     <link rel="stylesheet" href={{ asset('lib/modules/apexcharts/apexcharts.css') }}>
     <!-- Boostrap Icon-->
     <link rel="stylesheet" href={{ asset('lib/modules/bootstrap-icons/bootstrap-icons.css') }}>
+    <link rel="stylesheet" href={{asset('lib/tiny-slider/dist/tiny-slider.css')}}>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.min.css">
 
 </head>
 
@@ -95,11 +97,17 @@
     <script src="{{ asset('lib/-yaireo/tagify/dist/tagify.min.js') }}"></script>
     <script src="{{ asset('lib/simplebar/dist/simplebar.min.js') }}"></script>
     <!-- Theme JS -->
+    <script src={{asset('lib/tiny-slider/dist/min/tiny-slider.js')}}></script>
     <script src="{{ asset('js/Admin/theme.min.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src={{ asset('js/scripts.js') }}></script>
+    <script src="{{ asset('lib/feather-icons/dist/feather.min.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.27/dist/sweetalert2.all.min.js"></script>
+
+
     <script src={{ asset('js/scripts.js') }}></script>
 </body>
 

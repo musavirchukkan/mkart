@@ -26,7 +26,7 @@ class CategorySeeder extends Seeder
             'category_name' => 'Grocery'
         ]);
         Category::create([
-            'category_name' => 'Electonics'
+            'category_name' => 'Electronics'
         ]);
     }
 }

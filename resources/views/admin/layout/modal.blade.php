@@ -1,9 +1,9 @@
 {{-- category modal --}}
-<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="categoryModal" save-action={{route('admin.categories.save')}} token={{ csrf_token()}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-primary" id="exampleModalLabel">Add Category</h1>
+                <h1 class="modal-title fs-5 text-primary" id="categoryModalLabel">Add Category</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -12,28 +12,36 @@
                         <label for="category-name" class="col-form-label">Category Name :</label>
                         <input type="text" name="category_name" class="form-control" id="category-name">
                     </div>
+                    <div class="form-group">
+                        <!-- heading -->
+                        <label for="category-image" class="col-form-label">Category Image :</label>
+
+                        <!-- input -->
+                        <input type="file" name="category_image" id="category-image" class="form-control">
+                    </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Category</button>
+                <button type="button" class="btn btn-primary saveCategory">Save Category</button>
             </div>
         </div>
     </div>
 </div>
 
+
 {{-- product modal --}}
 
-<div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="productModal" save-action={{route('admin.products.save')}} token={{csrf_token()}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5 text-primary" id="exampleModalLabel">Add Product</h1>
+                <h1 class="modal-title fs-5 text-primary" id="productModalLabel">Add Product</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action={{ route('admin.products.save') }} method="POST" enctype="multipart/form-data">
-                    @csrf
+                <form >  {{-- action={{ route('admin.products.save') }} method="POST" enctype="multipart/form-data" --}}
+                    {{-- @csrf --}}
                     <div class="row">
                         <div class="col-lg-8 col-12">
                             <!-- card -->
@@ -103,13 +111,13 @@
                                         <div class="mb-3">
                                             <label class="form-label">Product Code</label>
                                             <input type="text" name="product_code" class="form-control"
-                                                placeholder="Enter Product Title">
+                                            style="text-transform:uppercase"    placeholder="MKT0##">
                                         </div>
                                         <!-- input -->
                                         <div class="mb-3">
                                             <label class="form-label">Stock</label>
-                                            <input type="text" name="stock" class="form-control"
-                                                placeholder="Enter Product Title">
+                                            <input type="number" name="stock" class="form-control"
+                                                placeholder="Enter No of Stock">
                                         </div>
                                         <!-- input -->
                                         {{-- <div class="mb-3">
@@ -168,9 +176,9 @@
                                         <label class="form-label">Status</label>
                                         <select class="form-select" name="status"
                                             aria-label="Default select example">
-                                            <option selected>Published</option>
-                                            <option value="1">Unpublished</option>
-                                            <option value="2">Draft</option>
+                                            <option selected value="1">Published</option>
+                                            <option value="2">Unpublished</option>
+                                            <option value="3">Draft</option>
                                         </select>
                                     </div>
 
@@ -183,13 +191,13 @@
                                     <!-- input -->
                                     <div class="mb-3">
                                         <label class="form-label">Regular Price</label>
-                                        <input type="text" name="price" class="form-control"
+                                        <input type="number" name="price" class="form-control"
                                             placeholder="₹ 49.00">
                                     </div>
                                     <!-- input -->
                                     <div class="mb-3">
                                         <label class="form-label">Sale Price</label>
-                                        <input type="text" name="sale_price" class="form-control"
+                                        <input type="number" name="sale_price" class="form-control"
                                             placeholder="₹ 49.00">
                                     </div>
                                     <!-- input -->
@@ -202,18 +210,18 @@
                                 </div>
                             </div>
                             <!-- button -->
-                            <div class="d-grid">
+                            {{-- <div class="d-grid">
                                 <button type="submit" class="btn btn-primary">
                                     Create Product
                                 </button>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save Product</button>
+                <button type="button" class="btn btn-primary saveProduct">Save Product</button>
             </div>
         </div>
     </div>

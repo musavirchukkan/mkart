@@ -10,7 +10,11 @@
             </div>
 
             <div class="row">
-                <div class="pb-2 row">
+                <div class="pb-2 row" style="
+                padding-right: 0px;
+                padding-left: 0px;
+                margin-left: 0px;
+                margin-right: 0px;">
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
                             <div class="card-body">
@@ -137,7 +141,7 @@
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Order Id</th>
+                                            <th scope="col">Order No</th>
                                             <th scope="col">Billing Name</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Total</th>
@@ -147,45 +151,30 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row">#SK2548 </th>
-                                            <td>Neal Matthews</td>
-                                            <td>07 Oct, 2022</td>
-                                            <td>$400</td>
-                                            <td><span class="text-success">Paid</span></td>
-                                            <td>Mastercard</td>
-                                            <td><button class="btn btn-primary">View Details</button></td>
-                                        </tr>
 
-                                        <tr>
-                                            <th scope="row">#SK2548 </th>
-                                            <td>Neal Matthews</td>
-                                            <td>07 Oct, 2022</td>
-                                            <td>$400</td>
-                                            <td><span class="text-success">Paid</span></td>
-                                            <td>Visa</td>
-                                            <td><button class="btn btn-primary">View Details</button></td>
-                                        </tr>
 
-                                        <tr>
-                                            <th scope="row">#SK2548 </th>
-                                            <td>Neal Matthews</td>
-                                            <td>07 Oct, 2022</td>
-                                            <td>$400</td>
-                                            <td><span class="text-danger">Chargeback</span></td>
-                                            <td>Paypal</td>
-                                            <td><button class="btn btn-primary">View Details</button></td>
-                                        </tr>
+                                        @foreach ($orders as $order)
+                                            <tr>
 
-                                        <tr>
-                                            <th scope="row">#SK2548 </th>
-                                            <td>Neal Matthews</td>
-                                            <td>07 Oct, 2022</td>
-                                            <td>$400</td>
-                                            <td><span class="text-warning">Refund</span></td>
-                                            <td>Visa</td>
-                                            <td><button class="btn btn-primary">View Details</button></td>
-                                        </tr>
+                                                <td>#MK0{{ $order->order_id }}</td>
+                                                <td>{{ $order->billing_name }}</td>
+                                                <td>{{ $order->created_at }}</td>
+                                                <td>{{ $order->price }}</td>
+                                                <td>{{ $order->payment_status }}</td>
+                                                <td>{{ $order->mode_of_payment }}</td>
+                                                <td>{{ $order->status }}</td>
+
+                                                <td><a href="{{ route('admin.orders.details', encrypt($order->order_id)) }}"
+                                                        class="btn btn-primary">View Details</a></td>
+
+
+                                            </tr>
+                                        @endforeach
+
+
+
+
+
                                     </tbody>
                                 </table>
                             </div>

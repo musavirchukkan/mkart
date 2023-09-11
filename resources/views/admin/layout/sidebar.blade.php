@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href={{ route('admin.products.categories') }}>
+                    <a href={{ route('admin.categories.list') }}>
                         <i class='bx bx-category bx-sm icon'></i>
                         Category
                     </a>
@@ -32,14 +32,14 @@
 
 
                 <li>
-                    <a href={{ route('admin.products.list') }}>
+                    <a href={{ route('admin.orders.list') }}>
                         <i class='bx bx-cart bx-sm icon'></i>
                         Orders
                     </a>
                 </li>
 
                 <li>
-                    <a href={{ route('admin.products.list') }}>
+                    <a href={{ route('admin.users.list') }}>
                         <i class='bx bx-group bx-sm icon'></i>
                         Customers
                     </a>

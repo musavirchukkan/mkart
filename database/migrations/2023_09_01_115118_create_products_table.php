@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('category_id');
             $table->string('category_name');
-            $table->string('image')->nullable();
+            $table->string('category_image')->nullable();
             $table->timestamps();
         });
 
@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('name');
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('category_id')->on('categories');
-            $table->string('image')->nullable();
+            $table->string('sub_category_image')->nullable();
             $table->timestamps();
         });
 
@@ -35,7 +35,7 @@ return new class extends Migration
             $table->double('price', 15, 2);
             $table->double('sale_price', 15, 2);
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->foreign('category_id')->references('category_id')->on('categories')->nullable();
             $table->string('main_image')->nullable();
             $table->string('image')->nullable();
             $table->longText('description');

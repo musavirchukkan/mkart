@@ -32,86 +32,78 @@
                         </div>
 
                         <div class="card-body">
-                            {{-- <div class="table-responsive"> --}}
-                            {{-- <table class="table table-striped">
-                                    <thead>
+                            <div class="table-responsive table-card">
+                                <table id="category-list" class="table text-nowrap mb-0 table-centered table-hover">
+                                    <thead class="table-light">
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Name</th>
-                                            <th scope="col">Category</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Stock</th>
-                                            <th scope="col">Actions</th>
+                                            <th class=" w-5">#</th>
+                                            <th class="w-5">Product Image</th>
+                                            <th>Product Name</th>
+                                            <th class="w-10">Category</th>
+                                            <th class="w-5">Price</th>
+                                            <th class="w-5">Sale Price</th>
+                                            <th class="w-10">Status</th>
+                                            <th class="w-10">Stock</th>
+                                            <th class="w-5">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($products as $product)
+
+                                            @foreach ($products as $product)
                                             <tr>
-                                                <td scope="row">{{ $loop->iteration }}</td>
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td><img src="{{$product->main_image}}" alt=""   width=75/>
+                                                </td>
                                                 <td>{{ $product->product_name }}</td>
                                                 <td>{{ $product->category->category_name }}</td>
-                                                <td>{{ number_format($product->price, 2) }}</td>
+                                                <td class="text-end">₹ {{ number_format($product->price, 2) }}</td>
+                                                <td class="text-end">₹ {{ number_format($product->sale_price, 2) }}</td>
                                                 <td>{{ $product->status_text }}</td>
                                                 <td>{{ $product->stock }}</td>
                                                 <td>
-                                                    <a href={{ route('admin.products.details', encrypt($product->product_id)) }}
-                                                        class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Info</a>
-                                                    <a href={{ route('admin.products.edit', encrypt($product->product_id)) }}
-                                                        class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a href={{ route('admin.products.delete', encrypt($product->product_id)) }}
-                                                        class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i>
-                                                        Delete</a>
+
+
+                                                    <div class="dropdown">
+                                                        <a class="btn btn-icon btn-sm btn-ghost rounded-circle"
+                                                            href="#!" role="button" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <i data-feather="more-vertical" class="icon-xs"></i>
+                                                        </a>
+
+                                                        <ul class="dropdown-menu">
+                                                            <li><a class="dropdown-item d-flex align-items-center"
+                                                                    href={{ route('admin.products.details', encrypt($product->product_id)) }}>Info</a>
+                                                            </li>
+                                                            <li><a class="dropdown-item d-flex align-items-center"
+                                                                    href={{ route('admin.products.edit', encrypt($product->product_id)) }}>Edit</a>
+                                                            </li>
+                                                            {{-- <li><a class="dropdown-item d-flex align-items-center"
+                                                                    href="{{ route('admin.products.delete', encrypt($product->product_id)) }}">Delete
+                                                                </a> --}}
+
+                                                            <form method="POST"
+                                                                action="{{ route('admin.products.delete', encrypt($product->product_id)) }}">
+                                                                @csrf
+                                                                <input name="_method" type="hidden" value="DELETE">
+                                                                <button type="submit"
+                                                                    class="dropdown-item d-flex align-items-center confirm-delete">Delete</button>
+                                                            </form>
+
+
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+
                                                 </td>
                                             </tr>
                                         @endforeach
+
+
+
+
                                     </tbody>
-                                </table> --}}
-                            <table id="category-list" class="table table-striped" style="width:100%">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Product Name</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Stock</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($products as $product)
-                                        <tr>
-                                            <td scope="row">{{ $loop->iteration }}</td>
-                                            <td>{{ $product->product_name }}</td>
-                                            <td>{{ $product->category->category_name }}</td>
-                                            <td class="text-end">₹ {{ number_format($product->price, 2) }}</td>
-                                            <td>{{ $product->status_text }}</td>
-                                            <td>{{ $product->stock }}</td>
-                                            <td>
-                                                <a href={{ route('admin.products.details', encrypt($product->product_id)) }}
-                                                    class="btn btn-primary btn-sm"><i class="fas fa-user"></i> Info</a>
-                                                <a href={{ route('admin.products.edit', encrypt($product->product_id)) }}
-                                                    class="btn btn-info btn-sm"><i class="fas fa-edit"></i> Edit</a>
-                                                <a href={{ route('admin.products.delete', encrypt($product->product_id)) }}
-                                                    class="btn btn-danger btn-sm"><i class="fas fa-xmark"></i>
-                                                    Delete</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                </tbody>
-
-                            </table>
-                            {{-- </div> --}}
-                            {{-- <div class="row card-footer clearfix ">
-                                <ul class="col-8 mt-2">
-                                    <h5>Total Products : ({{ $products->total() }}) </h5>
-                                </ul>
-
-                                <ul class=" col-4 pagination pagination-sm mt-2 ">
-                                    {{ $products->links() }}
-                                </ul>
-                            </div> --}}
+                                </table>
+                            </div>
                         </div>
 
                     </div>
@@ -124,8 +116,11 @@
     <!-- Button trigger modal -->
 
 
+
+
+
     <!-- Modal -->
 
-@include('admin.layout.modal')
+    @include('admin.layout.modal')
 
 @endsection
