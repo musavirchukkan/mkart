@@ -34,7 +34,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category Name</th>
-                                    <th scope="col">Total Products</th>
+                                    {{-- <th scope="col">Total Products</th> --}}
                                     <th scope="col">Actions</th>
 
 
@@ -45,14 +45,13 @@
                                 @foreach ($categories as $category)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>{{ $category->category_image }}</td>
+                                        <td><img src="{{ $category->category_image }}" alt="" width=75 /></td>
                                         <td>{{ $category->category_name }}</td>
-                                        <td>{{ $category->category_name }}</td>
+                                        {{-- <td>{{ $category->count }}</td> --}}
                                         <td>
                                             <div class="dropdown">
-                                                <a class="btn btn-icon btn-sm btn-ghost rounded-circle"
-                                                    href="#!" role="button" data-bs-toggle="dropdown"
-                                                    aria-expanded="false">
+                                                <a class="btn btn-icon btn-sm btn-ghost rounded-circle" href="#!"
+                                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i data-feather="more-vertical" class="icon-xs"></i>
                                                 </a>
 
@@ -67,11 +66,13 @@
                                                             href="{{ route('admin.products.delete', encrypt($product->product_id)) }}">Delete
                                                         </a> --}}
 
-                                                        <form method="POST" action="{{ route('admin.categories.delete', encrypt($category->category_id)) }}">
-                                                            @csrf
-                                                            <input name="_method" type="hidden" value="DELETE">
-                                                            <button type="submit" class="dropdown-item d-flex align-items-center confirm-delete" >Delete</button>
-                                                        </form>
+                                                    <form method="POST"
+                                                        action="{{ route('admin.categories.delete', encrypt($category->category_id)) }}">
+                                                        @csrf
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button type="submit"
+                                                            class="dropdown-item d-flex align-items-center confirm-delete">Delete</button>
+                                                    </form>
 
 
                                                     </li>
@@ -102,8 +103,8 @@
 
     </div>
     </div>
-{{-- modal --}}
-@include('admin.layout.modal')
-{{-- end modal --}}
+    {{-- modal --}}
+    @include('admin.layout.modal')
+    {{-- end modal --}}
 
 @endsection

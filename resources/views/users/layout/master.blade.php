@@ -130,7 +130,7 @@
                             </div>
                         </div>
                         @foreach ($categories as $category)
-                            <a href="" class="nav-item nav-link">{{ $category->name }}</a>
+                            <a href="" class="nav-item nav-link">{{ $category->category_name }}</a>
                         @endforeach
 
                         {{-- <a href="" class="nav-item nav-link">Jeans</a>

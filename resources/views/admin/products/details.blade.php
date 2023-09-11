@@ -36,40 +36,35 @@
                                             <div>
                                                 <div>
                                                     <!-- img -->
-                                                    <img src="{{$product->image}}" alt=""
-                                                        class="img-fluid">
+                                                    <img src="{{ $product->image }}" alt="" class="img-fluid">
                                                 </div>
 
                                             </div>
                                             <div>
                                                 <div>
                                                     <!-- img -->
-                                                    <img src="{{$product->main_image}}" alt=""
-                                                        class="img-fluid">
+                                                    <img src="{{ $product->main_image }}" alt="" class="img-fluid">
                                                 </div>
 
                                             </div>
                                             <div>
                                                 <div>
                                                     <!-- img -->
-                                                    <img src="{{$product->image}}" alt="Image"
-                                                        class="img-fluid">
+                                                    <img src="{{ $product->image }}" alt="Image" class="img-fluid">
                                                 </div>
 
                                             </div>
                                             <div>
                                                 <div>
                                                     <!-- img -->
-                                                    <img src="{{$product->image}}" alt="Image"
-                                                        class="img-fluid">
+                                                    <img src="{{ $product->image }}" alt="Image" class="img-fluid">
                                                 </div>
 
                                             </div>
                                             <div>
                                                 <div>
                                                     <!-- img -->
-                                                    <img src="{{$product->image}}" alt="Image"
-                                                        class="img-fluid">
+                                                    <img src="{{ $product->image }}" alt="Image" class="img-fluid">
                                                 </div>
 
                                             </div>
@@ -81,31 +76,31 @@
                                                 <div class="col-3">
                                                     <div class="thumbnails-img">
                                                         <!-- img -->
-                                                        <img src="{{$product->image}}" alt="Image">
+                                                        <img src="{{ $product->image }}" alt="Image">
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="thumbnails-img">
                                                         <!-- img -->
-                                                        <img src="{{$product->main_image}}" alt="Image">
+                                                        <img src="{{ $product->main_image }}" alt="Image">
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="thumbnails-img">
                                                         <!-- img -->
-                                                        <img src="{{$product->image}}" alt="Image">
+                                                        <img src="{{ $product->image }}" alt="Image">
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="thumbnails-img">
                                                         <!-- img -->
-                                                        <img src="{{$product->image}}" alt="Image">
+                                                        <img src="{{ $product->image }}" alt="Image">
                                                     </div>
                                                 </div>
                                                 <div class="col-3">
                                                     <div class="thumbnails-img">
                                                         <!-- img -->
-                                                        <img src="{{$product->image}}" alt="Image">
+                                                        <img src="{{ $product->image }}" alt="Image">
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,15 +110,16 @@
                                         <div class="my-5 mx-xl-10">
                                             <div>
                                                 <!-- heading -->
-                                                <h1>{{$product->product_name}}</h1>
+                                                <h1>{{ $product->product_name }}</h1>
 
                                             </div>
                                             <hr class="my-3">
                                             <div class="mb-5">
                                                 <!-- heading -->
-                                                <h4 class="mb-1">&#8377 {{$product->sale_price}} <span
-                                                        class="text-muted text-decoration-line-through">&#8377 {{$product->price}}</span>
-                                                    <span class="text-warning"> ({{$discount }}% OFF)</span>
+                                                <h4 class="mb-1">&#8377 {{ $product->sale_price }} <span
+                                                        class="text-muted text-decoration-line-through">&#8377
+                                                        {{ $product->price }}</span>
+                                                    <span class="text-warning"> ({{ $discount }}% OFF)</span>
                                                 </h4>
                                                 <span>inclusive of all taxes</span>
                                             </div>

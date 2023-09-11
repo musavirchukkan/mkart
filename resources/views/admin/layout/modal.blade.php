@@ -1,5 +1,6 @@
 {{-- category modal --}}
-<div class="modal fade" id="categoryModal" save-action={{route('admin.categories.save')}} token={{ csrf_token()}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="categoryModal" save-action={{ route('admin.categories.save') }} token={{ csrf_token() }}
+    tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -23,16 +24,55 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary saveCategory">Save Category</button>
+                <button type="button" id='modalHide' class="btn btn-primary saveCategory">Save Category</button>
             </div>
         </div>
     </div>
 </div>
 
 
+
+{{-- category modal inside --}}
+
+
+<div class="modal fade" id="categoryModalInside" save-action={{ route('admin.categories.save') }}
+    token={{ csrf_token() }} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-primary" id="categoryModalLabel">Add Category</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="category-name" class="col-form-label">Category Name :</label>
+                        <input type="text" name="category_name_inside" class="form-control" id="category-name">
+                    </div>
+                    <div class="form-group">
+                        <!-- heading -->
+                        <label for="category-image" class="col-form-label">Category Image :</label>
+
+                        <!-- input -->
+                        <input type="file" name="category_image_inside" id="category-image" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary backToForm" data-bs-dismiss="modal">Close</button>
+                <button type="button" id='modalHide' class="btn btn-primary saveCategoryInside">Save Category</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 {{-- product modal --}}
 
-<div class="modal fade" id="productModal" save-action={{route('admin.products.save')}} token={{csrf_token()}} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="productModal" save-action={{ route('admin.products.save') }}
+    fetch-categories={{ route('admin.categories.fetchCategories') }} token={{ csrf_token() }} tabindex="-1"
+    aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -40,7 +80,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form >  {{-- action={{ route('admin.products.save') }} method="POST" enctype="multipart/form-data" --}}
+                <form> {{-- action={{ route('admin.products.save') }} method="POST" enctype="multipart/form-data" --}}
                     {{-- @csrf --}}
                     <div class="row">
                         <div class="col-lg-8 col-12">
@@ -102,8 +142,8 @@
                                 <div class="card-body">
                                     <!-- input -->
                                     <div class="form-check form-switch mb-4">
-                                        <input class="form-check-input" name="is_stock" value="1" type="checkbox"
-                                            role="switch" id="flexSwitchStock" checked>
+                                        <input class="form-check-input" name="is_stock" value="1"
+                                            type="checkbox" role="switch" id="flexSwitchStock" checked>
                                         <label class="form-check-label" for="flexSwitchStock">In Stock</label>
                                     </div>
                                     <!-- input -->
@@ -111,7 +151,7 @@
                                         <div class="mb-3">
                                             <label class="form-label">Product Code</label>
                                             <input type="text" name="product_code" class="form-control"
-                                            style="text-transform:uppercase"    placeholder="MKT0##">
+                                                style="text-transform:uppercase" placeholder="MKT0##">
                                         </div>
                                         <!-- input -->
                                         <div class="mb-3">
@@ -144,18 +184,20 @@
                                         <div class="mb-3">
                                             <div class="d-flex justify-content-between">
                                                 <label class="form-label">Category</label>
-                                                <a href="" class="btn-link fw-semi-bold" data-bs-toggle="modal" data-bs-target="#categoryModal">Add New Category</a>
+                                                <a href="" class="btn-link fw-semi-bold"
+                                                    data-bs-toggle="modal" data-bs-target="#categoryModalInside">Add
+                                                    New Category</a>
 
                                             </div>
                                             <!-- select menu -->
                                             <select class="form-select" name="category_id"
                                                 aria-label="Default select example">
                                                 <option value="">Select an Option</option>
-                                                @foreach ($categories as $category)
+                                                {{-- @foreach ($categories as $category)
                                                     <option value="{{ $category->category_id }}">
                                                         {{ $category->category_name }}
                                                     </option>
-                                                @endforeach
+                                                @endforeach --}}
                                             </select>
                                         </div>
                                         <!-- tag -->
