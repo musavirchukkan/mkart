@@ -28,7 +28,7 @@ class LoginController
         if (auth()->guard('admin')->attempt($input, $request->input('remember_me'))) {
             return redirect()->route('admin.dashboard');
         } else {
-            return "Login error";
+            return redirect()->route('admin.login')->with('message', 'Login is Invalid');
         }
     }
 

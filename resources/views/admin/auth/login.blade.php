@@ -16,7 +16,10 @@
                             Mkart</a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                    @if (session()->has('message'))
+                        <h6 class="text-danger"> {{ session()->get('message') }} </h6>
+                        <p class="auth-subtitle mb-5">Log in with your data that you entered during registration.</p>
+                    @endif
 
                     <form action={{ route('admin.do.login') }} method="post">
                         @csrf
