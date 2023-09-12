@@ -38,8 +38,7 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
             Route::get('details/{id}', 'details')->name('details');
             Route::post('update', 'update')->name('edit');
             Route::delete('delte/{id}', 'delete')->name('delete');
-
-
+            Route::get('fetch-categories', 'fetchCategories')->name('fetchCategories');
         });
 
 
@@ -48,7 +47,6 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
             Route::get('details/{id}', 'details')->name('details');
             Route::post('update', 'update')->name('edit');
             Route::delete('delte/{id}', 'delete')->name('delete');
-
         });
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -35,8 +36,9 @@ class CategoryController
             'image' => $request->category_image,
 
         ]);
+        return ['status' => 200, 'message' => 'Category Created Successfully'];
 
-        return redirect()->route('admin.categories.list')->with('message', 'Category Saved successfully');
+        // return redirect()->route('admin.categories.list')->with('message', 'Category Saved successfully');
     }
 
     public function delete($id)
@@ -48,8 +50,13 @@ class CategoryController
         $category->delete();
         sleep(1);
 
-    return redirect()->route('admin.categories.list');  //->with('message', 'Product Deleted Successfully')
+        return redirect()->route('admin.categories.list');  //->with('message', 'Product Deleted Successfully')
     }
 
 
+    public function fetchCategories()
+    {
+        $categories = Category::all();
+        return ['status' => 200, 'data' => $categories];
+    }
 }

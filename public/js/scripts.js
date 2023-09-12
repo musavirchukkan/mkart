@@ -48,8 +48,19 @@ $(function () {
                 sale_price: salePrice,
             },
             success: function (responce) {
-                console.log(responce);
+                // console.log(responce);
+                if (responce.status == 200) {
+                    $("#productModal").modal("hide");
 
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: responce.message,
+                    });
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
             },
         });
     });
@@ -72,6 +83,7 @@ $(function () {
                 // console.log(responce);
                 if (responce.status == 200) {
                     $("#categoryModal").modal("hide");
+
                     Swal.fire({
                         icon: "success",
                         title: "Success",
@@ -84,6 +96,67 @@ $(function () {
             },
         });
     });
+    // category inside
+    $(".saveCategoryInside").click(function () {
+        var categoryName = $('input[name="category_name_inside"]').val();
+        var categoryImage = $('input[name="category_image_inside"]').val();
+
+        $.ajax({
+            type: "POST",
+            url: $("#categoryModalInside").attr("save-action"),
+            headers: {
+                "X-CSRF-TOKEN": $("#categoryModal").attr("token"),
+            },
+            data: {
+                category_name: categoryName,
+                category_image: categoryImage,
+            },
+            success: function (responce) {
+                // console.log(responce);
+                if (responce.status == 200) {
+                    $("#categoryModalInside").modal('hide');
+
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: responce.message,
+                    });
+                    setTimeout(function () {
+                        $("#productModal").modal("show");
+                    }, 2000);
+                }
+            },
+        });
+    });
+
+    $('.backToForm').click(function () {
+        $("#productModal").modal("show");
+
+    })
+
+    $('select[name=category_id]').focus(function () {
+        var category_id = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: $("#productModal").attr("fetch-categories"),
+            dataType: 'JSON',
+            success: function (response) {
+
+                var optionHtml = '';
+                for (let i = 0; i < response.data.length; i++) {
+                    const element = response.data[i];
+                    optionHtml += `<option value='` + element.category_id + `'>` + element.category_name + `</option>`;
+
+                }
+                console.log(optionHtml);
+                $('select[name=category_id]').html(optionHtml);
+
+
+            },
+        });
+
+    });
+
 });
 
 $(".confirm-delete").click(function (event) {

@@ -10,7 +10,8 @@
             </div>
 
             <div class="row">
-                <div class="pb-2 row" style="
+                <div class="pb-2 row"
+                    style="
                 padding-right: 0px;
                 padding-left: 0px;
                 margin-left: 0px;
@@ -23,8 +24,24 @@
                                         <i class="fas fa-inbox icon-home bg-primary text-light"></i>
                                     </div>
                                     <div class="col-8">
-                                        <p>Revenue</p>
-                                        <h5>$65</h5>
+                                        <p>Products</p>
+                                        <h5>{{ $productCount }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4 d-flex align-items-center">
+                                        <i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
+                                    </div>
+                                    <div class="col-8">
+                                        <p>Category</p>
+                                        <h5> {{ $categoryCount }} </h5>
                                     </div>
                                 </div>
                             </div>
@@ -40,28 +57,14 @@
                                     </div>
                                     <div class="col-8">
                                         <p>Orders</p>
-                                        <h5>3000</h5>
+                                        <h5>{{ $orderCount }}</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-6 col-lg-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-4 d-flex align-items-center">
-                                        <i class="fas fa-chart-bar  icon-home bg-info text-light"></i>
-                                    </div>
-                                    <div class="col-8">
-                                        <p>Sales</p>
-                                        <h5>5500</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <div class="col-md-6 col-lg-3">
                         <div class="card">
@@ -71,8 +74,8 @@
                                         <i class="fas fa-id-card  icon-home bg-warning text-light"></i>
                                     </div>
                                     <div class="col-8">
-                                        <p>Employes</p>
-                                        <h5>256</h5>
+                                        <p>Customers</p>
+                                        <h5>{{ $userCount }}</h5>
                                     </div>
                                 </div>
                             </div>

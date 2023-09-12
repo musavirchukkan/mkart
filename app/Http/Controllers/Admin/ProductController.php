@@ -13,10 +13,10 @@ class ProductController
 {
     public function list()
     {
-        $products = Product::latest()->get(); ;
+        $products = Product::latest()->get();;
         $categories = Category::all();
         // return $products;
-        return view('admin.products.list', compact('products','categories'));
+        return view('admin.products.list', compact('products', 'categories'));
     }
 
     public function create()
@@ -60,9 +60,9 @@ class ProductController
     {
         $product = Product::find(decrypt($id));
         //
-        $discount_price=($product->sale_price/$product->price)*100;
-        $discount=round(100-$discount_price);
-        return view('admin.products.details', compact('product','discount'));
+        $discount_price = ($product->sale_price / $product->price) * 100;
+        $discount = round(100 - $discount_price);
+        return view('admin.products.details', compact('product', 'discount'));
     }
 
     public function edit($id)
@@ -98,8 +98,6 @@ class ProductController
         $product->delete();
         sleep(1);
 
-    return redirect()->route('admin.products.list');  //->with('message', 'Product Deleted Successfully')
+        return redirect()->route('admin.products.list');  //->with('message', 'Product Deleted Successfully')
     }
-
-
 }
