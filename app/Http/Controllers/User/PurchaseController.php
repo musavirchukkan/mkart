@@ -11,12 +11,27 @@ class PurchaseController
     public function cart()
     {
         $categories = Category::all();
-        return view('users.cart', compact('categories'));
+        return view('users.purchase.cart', compact('categories'));
     }
 
     public function shop()
     {
         $categories = Category::all();
-        return view('users.shop', compact('categories'));
+        return view('users.purchase.shop', compact('categories'));
+    }
+    public function checkout()
+    {
+        $categories = Category::all();
+        return view('users.purchase.checkout', compact('categories'));
+    }
+    public function contact()
+    {
+        $categories = Category::all();
+        return view('users.purchase.contact', compact('categories'));
+    }
+    public function details()
+    {
+        $categories = Category::all();
+        return view('users.purchase.details', compact('categories'));
     }
 }

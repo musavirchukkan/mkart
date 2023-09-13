@@ -37,12 +37,18 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('category_id')->on('categories')->nullable();
             $table->string('main_image')->nullable();
-            $table->string('image')->nullable();
             $table->longText('description');
             $table->string('tags')->nullable();
             $table->integer('stock')->default(0);
             $table->boolean('is_stock')->comment('1:In Stock,0:Out Stock')->default(0);
             $table->boolean('status')->comment('1:Published,2:Unpublished,3:Draft')->default(1);
+            $table->timestamps();
+        });
+        Schema::create('product_images', function (Blueprint $table) {
+            $table->bigIncrements('product_image_id');
+            $table->string('image')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('product_id')->on('products');
             $table->timestamps();
         });
     }
@@ -52,7 +58,9 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('product_images');
         Schema::dropIfExists('products');
+        Schema::dropIfExists('sub_categories');
         Schema::dropIfExists('categories');
     }
 };
