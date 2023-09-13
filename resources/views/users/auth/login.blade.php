@@ -19,7 +19,7 @@
             <div class="col-lg-10 my-auto myShadow">
                 <div class="row">
                     <div class="col-lg-7 bg-white p-4">
-                        <h1 class="text-center font-weight-bold text-primary">Sign in to Account</h1>
+                        <h1 class="text-center font-weight-bold text-secondary">Sign in to Account</h1>
                         <hr class="my-3" />
                         <form action="#" method="post" class="px-3" id="login-form">
                             <div class="input-group input-group-lg form-group">
@@ -79,7 +79,7 @@
                             id="login-link">Sign In</button>
                     </div>
                     <div class="col-lg-7 bg-white p-4">
-                        <h1 class="text-center font-weight-bold text-primary">Create Account</h1>
+                        <h1 class="text-center font-weight-bold text-secondary">Create Account</h1>
                         <hr class="my-3" />
                         <form action="#" method="post" class="px-3" id="register-form">
                             <div class="input-group input-group-lg form-group">
@@ -133,7 +133,7 @@
             <div class="col-lg-10 my-auto myShadow">
                 <div class="row">
                     <div class="col-lg-7 bg-white p-4">
-                        <h1 class="text-center font-weight-bold text-primary">Forgot Your Password?</h1>
+                        <h1 class="text-center font-weight-bold text-secondary">Forgot Your Password?</h1>
                         <hr class="my-3" />
                         <p class="lead text-center text-secondary">To reset your password, enter the registered e-mail
                             adddress and we will send you password reset instructions on your e-mail!</p>
