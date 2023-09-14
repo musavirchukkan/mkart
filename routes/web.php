@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\User\HomepageController;
 use App\Http\Controllers\User\LoginController;
+use App\Http\Controllers\User\ProfileController;
 use App\Http\Controllers\User\PurchaseController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ route::name('users.')->prefix('user')->controller(PurchaseController::class)->gr
     Route::get('contact', 'contact')->name('contact');
     Route::get('details', 'details')->name('details');
 });
+
+Route::get('user/profile', [ProfileController::class, 'profile'])->name('users.profile');

@@ -15,6 +15,8 @@
                         Account</button>
                     <div class="dropdown-menu dropdown-menu-right">
                         @auth
+                            <a href="{{ route('users.profile') }}" style="text-decoration:none"> <button
+                                    class="dropdown-item" type="button">Profile</button></a>
                             <a href="{{ route('logout') }}" style="text-decoration:none"> <button class="dropdown-item"
                                     type="button">Log Out</button></a>
                         @else
