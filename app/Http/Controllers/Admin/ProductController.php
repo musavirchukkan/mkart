@@ -29,9 +29,6 @@ class ProductController
 
         $input = $request->validated();
 
-
-
-
         if ($request->hasFile('main_image')) {
             $extension = $request->image->extension();
             $filename = Str::random(6) . "_" . time() . "_product." . $extension;

@@ -11,7 +11,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomepageController::class, 'home'])->name('homepage');
 
-Route::get('login', [LoginController::class, 'login'])->name('login');
+Route::controller(LoginController::class)->group(function () {
+    Route::get('login',  'login')->name('login');
+    Route::post('do-login',  'doLogin')->name('do.login');
+    Route::get('signup',  'signup')->name('signup');
+    Route::post('do-signup',  'doSignup')->name('do.signup');
+    Route::get('forgot-password',  'forgotPassword')->name('forgot.password');
+    Route::get('logout', 'logout')->name('logout');
+});
 
 
 route::name('users.')->prefix('user')->controller(PurchaseController::class)->group(function () {
