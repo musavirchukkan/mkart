@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Product;
+use App\Models\ProductImage;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,11 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             CategorySeeder::class
         ]);
-        Product::factory(100)->create();
+
+        $product = Product::factory(100)->create()->each(function ($product) {
+            ProductImage::factory(5)->create([
+                'product_id' => $product->product_id,
+            ]);
+        });
     }
 }

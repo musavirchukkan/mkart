@@ -21,8 +21,9 @@ class Product extends Model
     }
     public function images()
     {
-        return $this->hasMany('App\Image', 'product_id');
+        return $this->hasMany(ProductImage::class, 'product_id');
     }
+
 
     public function getStatusTextAttribute()
     {
@@ -30,11 +31,9 @@ class Product extends Model
             return 'Published';
         } elseif ($this->status == 2) {
             return 'Unpublished';
-        }
-        else {
+        } else {
             return 'Draft';
         }
-
     }
 
 

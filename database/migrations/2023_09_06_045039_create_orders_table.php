@@ -21,8 +21,8 @@ return new class extends Migration
 
             $table->double('price', 15, 2);
             $table->enum('payment_status', ['paid', 'refunded', 'canceled']);
-            $table->enum('mode_of_payment', ['cod', 'Gpay', 'Visa','Rupay','Mastercard']);
-            $table->enum('status', ['placed', 'confirmed', 'shiped', 'delivered','returned']);
+            $table->enum('mode_of_payment', ['cod', 'Gpay', 'Visa', 'Rupay', 'Mastercard']);
+            $table->enum('status', ['placed', 'confirmed', 'shiped', 'delivered', 'returned']);
             $table->timestamps();
         });
 
@@ -44,6 +44,7 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('order_lines');
         Schema::dropIfExists('orders');
     }
 };

@@ -9,6 +9,6 @@ class LoginController
 {
     public function login()
     {
-        return view();
+        return view('users.auth.login');
     }
 }
