@@ -1,58 +1,5 @@
 <div class="container-fluid">
-    <div class="row bg-secondary py-1 px-xl-5">
-        <div class="col-lg-6 d-none d-lg-block">
-            <div class="d-inline-flex align-items-center h-100">
-                <a class="text-body mr-3" href="">About</a>
-                <a class="text-body mr-3" href="">Contact</a>
-                <a class="text-body mr-3" href="">Help</a>
-                <a class="text-body mr-3" href="">FAQs</a>
-            </div>
-        </div>
-        <div class="col-lg-6 text-center text-lg-right">
-            <div class="d-inline-flex align-items-center">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My
-                        Account</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a href="{{ route('login') }}" style="text-decoration:none"> <button class="dropdown-item"
-                                type="button">Sign in / Sign
-                                up</button></a>
 
-                    </div>
-                </div>
-                {{-- <div class="btn-group mx-2">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                        data-toggle="dropdown">USD</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button">EUR</button>
-                        <button class="dropdown-item" type="button">GBP</button>
-                        <button class="dropdown-item" type="button">CAD</button>
-                    </div>
-                </div> --}}
-                {{-- <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
-                        data-toggle="dropdown">EN</button>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <button class="dropdown-item" type="button">FR</button>
-                        <button class="dropdown-item" type="button">AR</button>
-                        <button class="dropdown-item" type="button">RU</button>
-                    </div>
-                </div> --}}
-            </div>
-            <div class="d-inline-flex align-items-center d-block d-lg-none">
-                <a href="" class="btn px-0 ml-2">
-                    <i class="fas fa-heart text-dark"></i>
-                    <span class="badge text-dark border border-dark rounded-circle"
-                        style="padding-bottom: 2px;">0</span>
-                </a>
-                <a href="" class="btn px-0 ml-2">
-                    <i class="fas fa-shopping-cart text-dark"></i>
-                    <span class="badge text-dark border border-dark rounded-circle"
-                        style="padding-bottom: 2px;">0</span>
-                </a>
-            </div>
-        </div>
-    </div>
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
             <a href="" class="text-decoration-none">
@@ -73,8 +20,67 @@
             </form>
         </div>
         <div class="col-lg-4 col-6 text-right">
-            <p class="m-0">Customer Service</p>
-            <h5 class="m-0">+91 987 654 3210</h5>
+
+
+
+
+            <a href={{ route('users.cart') }} style="color:#6C757D "><i class="fa cartcount fa-shopping-cart"
+                    aria-hidden="true"></i><span>Cart</span>
+            </a>
+            <div class="btn-group pl-3">
+                @auth
+                    <div class="dropdown custom-dropdown">
+                        <a href="#" data-toggle="dropdown" class="d-flex align-items-center dropdown-link text-left"
+                            aria-haspopup="true" aria-expanded="false" data-offset="0, 20">
+                            <div class="profile-pic mr-3">
+                                @if (Auth::user()->image)
+                                    <img src="{{ asset('storage/' . $user->image) }}" alt="User Image">
+                                @else
+                                    <img src="{{ asset('img/Admin/images/avatar/avatar-1.png') }}" alt="Default Image">
+                                @endif
+
+                            </div>
+                            <div class="profile-info">
+                                <h3 class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->f_name }}
+                                </h3>
+                                <span>{{ Auth::user()->email }}</span>
+                            </div>
+
+
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+
+                            <a class="dropdown-item" href="{{ route('users.profile') }}"> <span
+                                    class="icon icon-dashboard"></span>Profile</a>
+                            <a class="dropdown-item" href="#"><span class="icon icon-mail_outline"></span>Wishlist</a>
+                            <a class="dropdown-item" href="#"><span class="icon icon-people"></span>Orders</a>
+                            <a class="dropdown-item" href="#"><span class="icon icon-people"></span>Address</a>
+                            <a class="dropdown-item" href="#"><span class="icon icon-cog"></span>Settings</a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"><span
+                                    class="icon icon-sign-out"></span>Log
+                                out</a>
+
+
+
+
+
+                        </div>
+                    </div>
+                @else
+                    <a href="{{ route('login') }}" style="text-decoration:none"> <button class="dropdown-item"
+                            type="button">Sign in</button></a>
+                    <a href="{{ route('signup') }}" style="text-decoration:none"> <button class="dropdown-item"
+                            type="button">Sign up</button></a>
+                @endauth
+
+
+
+            </div>
         </div>
     </div>
+
+</div>
 </div>
