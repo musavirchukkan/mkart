@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,11 +17,25 @@ class PurchaseController
         $carts = Cart::where('user_id', Auth::user()->user_id)->get();
         return view('users.purchase.cart', compact('categories', 'carts'));
     }
+    public function addToCart($id)
+    {
+        $product = Product::find(decrypt($id));
+        Cart::create([
+            'user_id' => Auth::id(),
+            'product_id' => $product->product_id,
+            'price' => $product->sale_price,
+
+            'quantity' => 1,
+
+        ]);
+        return redirect()->back();
+    }
 
     public function shop()
     {
         $categories = Category::all();
-        return view('users.purchase.shop', compact('categories'));
+        $products = Product::latest()->paginate(12);
+        return view('users.purchase.shop', compact('categories', 'products'));
     }
     public function checkout()
     {
@@ -43,5 +58,10 @@ class PurchaseController
         $products = Category::find(decrypt($id))->products;
         return $products;
         return view('users.purchase.shop', compact('categories', 'products'));
+    }
+    public function categoryList()
+    {
+        $categories = Category::all();
+        return view('users.purchase.category', compact('categories'));
     }
 }

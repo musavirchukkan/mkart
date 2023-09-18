@@ -19,7 +19,8 @@
                         </div>
                     </div> --}}
                     @foreach ($categories as $category)
-                        <a href="{{route('product.category',encrypt($category->category_id))}}" class="nav-item nav-link">{{ $category->category_name }}</a>
+                        <a href="{{ route('product.category', encrypt($category->category_id)) }}"
+                            class="nav-item nav-link">{{ $category->category_name }}</a>
                     @endforeach
 
                     {{-- <a href="" class="nav-item nav-link">Jeans</a>
@@ -44,8 +45,9 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="{{route('homepage')}}" class="nav-item nav-link active">Home</a>
-                        <a href="{{route('product.shop')}}" class="nav-item nav-link">Shop</a>
+                        <a href="{{ route('homepage') }}" class="nav-item nav-link active">Home</a>
+                        <a href="{{ route('product.shop') }}" class="nav-item nav-link">Shop</a>
+                        <a href="{{ route('product.category.list') }}" class="nav-item nav-link">Categories</a>
                         <a href="detail.html" class="nav-item nav-link">Track Order</a>
                         {{-- <div class="nav-item dropdown">
                             <a href={{ route('product.cart') }} class="nav-link dropdown-toggle"
@@ -55,7 +57,7 @@
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
                             </div>
                         </div> --}}
-                        <a href="{{route('product.contact')}}" class="nav-item nav-link">Contact</a>
+                        <a href="{{ route('product.contact') }}" class="nav-item nav-link">Contact</a>
                     </div>
 
                 </div>

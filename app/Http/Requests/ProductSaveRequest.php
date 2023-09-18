@@ -25,7 +25,7 @@ class ProductSaveRequest extends FormRequest
             'product_name' => ['required'],
             'price' => ['required'],
             'sale_price' => ['required'],
-            'category_id' => ['nullable'],
+            'category_id' => ['required'],
             'main_image' => ['nullable'],
             'image' => ['nullable'],
             'description' => ['nullable'],

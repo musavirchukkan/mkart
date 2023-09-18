@@ -12,7 +12,9 @@ class HomepageController
     public function home()
     {
         $categories = Category::all();
-        $products = Product::latest()->paginate(28);
-        return view('users.home', compact('products', 'categories'));
+        $products = Product::latest()->paginate(8);
+        $features = Product::where('is_featured', 1)->latest('created_at')->take(8)->get();
+
+        return view('users.home', compact('categories', 'products', 'features'));
     }
 }

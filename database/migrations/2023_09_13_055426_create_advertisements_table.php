@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('advertisement_id');
             $table->string('image');
             $table->string('discription')->nullable();
+            $table->boolean('type')->comment('1:banner,0:offer')->default(1);
             $table->timestamps();
         });
     }

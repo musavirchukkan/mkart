@@ -19,6 +19,12 @@ Route::controller(LoginController::class)->group(function () {
     Route::post('do-signup',  'doSignup')->name('do.signup');
     Route::get('forgot-password',  'forgotPassword')->name('forgot.password');
 
+    route::name('product.')->controller(PurchaseController::class)->group(function () {
+        Route::get('products',  'shop')->name('shop');
+        Route::get('details', 'details')->name('details');
+        Route::get('category/{id}', 'category')->name('category');
+        Route::get('category', 'categoryList')->name('category.list');
+    });
 
     Route::middleware('user_auth')->group(function () {
         Route::get('logout', 'logout')->name('logout');
@@ -27,15 +33,9 @@ Route::controller(LoginController::class)->group(function () {
         route::name('product.')->controller(PurchaseController::class)->group(function () {
             Route::prefix('user')->group(function () {
                 Route::get('cart',  'cart')->name('cart');
-            });
-            Route::prefix('products')->group(function () {
-                Route::get('/',  'shop')->name('shop');
-                Route::get('details', 'details')->name('details');
+                Route::get('add-to-cart/{id}', 'addToCart')->name('addToCart');
                 Route::get('checkout', 'checkout')->name('checkout');
-                Route::get('category/{id}', 'category')->name('category');
             });
-
-
 
             Route::get('contact', 'contact')->name('contact');
         });

@@ -15,11 +15,15 @@ return new class extends Migration
             $table->bigIncrements('address_id');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
+            $table->string('fname');
+            $table->string('lname');
             $table->string('house_name');
             $table->string('street');
             $table->string('city');
             $table->string('state');
             $table->string('pincode');
+            $table->string('number', 12);
+            $table->string('email', 100);
             $table->timestamps();
         });
     }

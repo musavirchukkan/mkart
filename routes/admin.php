@@ -22,7 +22,7 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
 
         route::name('products.')->prefix('products')->controller(ProductController::class)->group(function () {
             Route::get('/', 'list')->name('list');
-            // Route::get('create', 'create')->name('create');
+            Route::get('create', 'create')->name('create');
             Route::post('/save', 'save')->name('save');
             Route::get('details/{id}', 'details')->name('details');
             Route::get('edit/{id}', 'edit')->name('edit');

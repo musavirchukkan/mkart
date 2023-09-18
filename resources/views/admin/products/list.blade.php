@@ -14,14 +14,14 @@
                     <div class="card">
                         <div class="card-header">
                             {{-- <ul class="nav nav-pills ml-auto float-right"> --}}
-                            {{-- <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.create') }}><i
+                            <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.create') }}><i
                                     class='bx bx-list-plus bx-sm icon'></i>Add
                                 Product
-                            </a> --}}
-                            <button type="button" class="btn btn-primary float-right d-flex" data-bs-toggle="modal"
+                            </a>
+                            {{-- <button type="button" class="btn btn-primary float-right d-flex" data-bs-toggle="modal"
                                 data-bs-target="#productModal">
                                 <i class='bx bx-list-plus bx-sm icon'></i>Add Product
-                            </button>
+                            </button> --}}
                             {{-- <button type="button" class="btn btn-primary float-right d-flex" data-toggle="modal"
                                 data-target="#newModal">Add
                                 Product</button> --}}
@@ -49,10 +49,10 @@
                                     </thead>
                                     <tbody>
 
-                                            @foreach ($products as $product)
+                                        @foreach ($products as $product)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
-                                                <td><img src="{{$product->main_image}}" alt=""   width=75/>
+                                                <td><img src="{{ $product->main_image }}" alt="" width=75 />
                                                 </td>
                                                 <td>{{ $product->product_name }}</td>
                                                 <td>{{ $product->category->category_name }}</td>

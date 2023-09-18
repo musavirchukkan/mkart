@@ -18,28 +18,57 @@ class CategoryController
         return view('admin.products.categories', compact('categories'));
     }
 
+
     public function save(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|unique:categories,category_name'
+            'category_name' => 'required|unique:categories,category_name',
+            'category_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Add validation rules for the image
         ]);
 
-        if ($request->hasFile('category_image')) {
-            $extension = $request->image->extension();
+        if ($request->hasFile('category_image')) { // Check if an image was uploaded
+            $category_image = $request->file('category_image'); // Get the uploaded file
+            $extension = $category_image->getClientOriginalExtension();
             $filename = Str::random(6) . "_" . time() . "_category." . $extension;
-            $request->image->storeAs('images/categories', $filename);
-            $request['category_image'] = $filename;
+            $filepath = $category_image->storeAs('images/categories', $filename);
+        } else {
+            $filepath = null; // Handle the case where no image was uploaded
         }
 
         Category::create([
             'category_name' => $request->category_name,
-            'image' => $request->category_image,
-
+            'image' => $filepath, // Save the file path to the 'image' column
         ]);
-        return ['status' => 200, 'message' => 'Category Created Successfully'];
 
-        // return redirect()->route('admin.categories.list')->with('message', 'Category Saved successfully');
+        return ['status' => 200, 'message' => 'Category Created Successfully'];
+        // Alternatively, you can return a redirect response here
     }
+
+
+
+
+    // public function save(Request $request)
+    // {
+    //     $request->validate([
+    //         'category_name' => 'required|unique:categories,category_name'
+    //     ]);
+
+    //     if ($request->input('category_image')) {
+    //         $extension = $request->image->extension();
+    //         $filename = Str::random(6) . "_" . time() . "_category." . $extension;
+    //         $filepath = $request->image->storeAs('images/categories', $filename);
+    //         $request['category_image'] = $filepath;
+    //     }
+    //     return $request->category_image;
+    //     Category::create([
+    //         'category_name' => $request->category_name,
+    //         'image' => $request->category_image,
+
+    //     ]);
+    //     // return ['status' => 200, 'message' => 'Category Created Successfully'];
+
+    //     // return redirect()->route('admin.categories.list')->with('message', 'Category Saved successfully');
+    // }
 
     public function delete($id)
     {

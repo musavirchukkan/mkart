@@ -41,6 +41,7 @@ return new class extends Migration
             $table->string('tags')->nullable();
             $table->integer('stock')->default(0);
             $table->boolean('is_stock')->comment('1:In Stock,0:Out Stock')->default(0);
+            $table->boolean('is_featured')->comment('1:Featured,0:Not Featured')->default(0);
             $table->boolean('status')->comment('1:Published,2:Unpublished,3:Draft')->default(1);
             $table->timestamps();
         });
