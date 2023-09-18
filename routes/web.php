@@ -18,16 +18,35 @@ Route::controller(LoginController::class)->group(function () {
     Route::get('signup',  'signup')->name('signup');
     Route::post('do-signup',  'doSignup')->name('do.signup');
     Route::get('forgot-password',  'forgotPassword')->name('forgot.password');
-    Route::get('logout', 'logout')->name('logout');
+
+
+    Route::middleware('user_auth')->group(function () {
+        Route::get('logout', 'logout')->name('logout');
+
+
+        route::name('product.')->controller(PurchaseController::class)->group(function () {
+            Route::prefix('user')->group(function () {
+                Route::get('cart',  'cart')->name('cart');
+            });
+            Route::prefix('products')->group(function () {
+                Route::get('/',  'shop')->name('shop');
+                Route::get('details', 'details')->name('details');
+                Route::get('checkout', 'checkout')->name('checkout');
+                Route::get('category/{id}', 'category')->name('category');
+            });
+
+
+
+            Route::get('contact', 'contact')->name('contact');
+        });
+
+        Route::name('user.')->prefix('user')->controller(ProfileController::class)->group(function () {
+
+            Route::get('profile', 'profile')->name('profile');
+            Route::get('address', 'address')->name('address');
+            Route::get('wishlist', 'whishlist')->name('whishlist');
+            Route::get('orders', 'orders')->name('orders');
+            Route::get('settings', 'settings')->name('settings');
+        });
+    });
 });
-
-
-route::name('users.')->prefix('user')->controller(PurchaseController::class)->group(function () {
-    Route::get('cart',  'cart')->name('cart');
-    Route::get('shop',  'shop')->name('shop');
-    Route::get('checkout', 'checkout')->name('checkout');
-    Route::get('contact', 'contact')->name('contact');
-    Route::get('details', 'details')->name('details');
-});
-
-Route::get('user/profile', [ProfileController::class, 'profile'])->name('users.profile');

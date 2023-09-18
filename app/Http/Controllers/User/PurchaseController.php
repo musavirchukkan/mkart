@@ -37,4 +37,11 @@ class PurchaseController
         $categories = Category::all();
         return view('users.purchase.details', compact('categories'));
     }
+    public function category($id)
+    {
+        $categories = Category::all();
+        $products = Category::find(decrypt($id))->products;
+        return $products;
+        return view('users.purchase.shop', compact('categories', 'products'));
+    }
 }

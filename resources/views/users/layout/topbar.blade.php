@@ -2,7 +2,7 @@
 
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
         <div class="col-lg-4">
-            <a href="" class="text-decoration-none">
+            <a href="{{route('homepage')}}" class="text-decoration-none">
                 <span class="h1 text-uppercase text-primary bg-dark px-2">M</span>
                 <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">Kart</span>
             </a>
@@ -24,7 +24,7 @@
 
 
 
-            <a href={{ route('users.cart') }} style="color:#6C757D "><i class="fa cartcount fa-shopping-cart"
+            <a href={{ route('product.cart') }} style="color:#6C757D "><i class="fa cartcount fa-shopping-cart"
                     aria-hidden="true"></i><span>Cart</span>
             </a>
             <div class="btn-group pl-3">
@@ -53,15 +53,13 @@
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
 
-                            <a class="dropdown-item" href="{{ route('users.profile') }}"> <span
+                            <a class="dropdown-item" href="{{ route('user.profile') }}"> <span
                                     class="icon icon-dashboard"></span>Profile</a>
-                            <a class="dropdown-item" href="#"><span class="icon icon-mail_outline"></span>Wishlist</a>
-                            <a class="dropdown-item" href="#"><span class="icon icon-people"></span>Orders</a>
-                            <a class="dropdown-item" href="#"><span class="icon icon-people"></span>Address</a>
-                            <a class="dropdown-item" href="#"><span class="icon icon-cog"></span>Settings</a>
-                            <a class="dropdown-item" href="{{ route('logout') }}"><span
-                                    class="icon icon-sign-out"></span>Log
-                                out</a>
+                            <a class="dropdown-item" href={{ route('user.whishlist') }}><span class="icon icon-mail_outline"></span>Wishlist</a>
+                            <a class="dropdown-item" href={{ route('user.orders') }}><span class="icon icon-people"></span>Orders</a>
+                            <a class="dropdown-item" href={{ route('user.address') }}><span class="icon icon-people"></span>Address</a>
+                            <a class="dropdown-item" href={{ route('user.settings') }}><span class="icon icon-cog"></span>Settings</a>
+                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"><span class="icon icon-sign-out"></span>Logout</a>
 
 
 

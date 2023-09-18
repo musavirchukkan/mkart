@@ -9,7 +9,7 @@
             <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light"
                 id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                 <div class="navbar-nav w-100">
-                    <div class="nav-item dropdown dropright">
+                    {{-- <div class="nav-item dropdown dropright">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i
                                 class="fa fa-angle-right float-right mt-1"></i></a>
                         <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
@@ -17,9 +17,9 @@
                             <a href="" class="dropdown-item">Women's Dresses</a>
                             <a href="" class="dropdown-item">Baby's Dresses</a>
                         </div>
-                    </div>
+                    </div> --}}
                     @foreach ($categories as $category)
-                        <a href="" class="nav-item nav-link">{{ $category->category_name }}</a>
+                        <a href="{{route('product.category',encrypt($category->category_id))}}" class="nav-item nav-link">{{ $category->category_name }}</a>
                     @endforeach
 
                     {{-- <a href="" class="nav-item nav-link">Jeans</a>
@@ -44,31 +44,20 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="shop.html" class="nav-item nav-link">Shop</a>
-                        <a href="detail.html" class="nav-item nav-link">Shop Detail</a>
-                        <div class="nav-item dropdown">
-                            <a href={{ route('users.cart') }} class="nav-link dropdown-toggle"
+                        <a href="{{route('homepage')}}" class="nav-item nav-link active">Home</a>
+                        <a href="{{route('product.shop')}}" class="nav-item nav-link">Shop</a>
+                        <a href="detail.html" class="nav-item nav-link">Track Order</a>
+                        {{-- <div class="nav-item dropdown">
+                            <a href={{ route('product.cart') }} class="nav-link dropdown-toggle"
                                 data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
                             <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                <a href={{ route('users.cart') }} class="dropdown-item">Shopping Cart</a>
+                                <a href={{ route('product.cart') }} class="dropdown-item">Shopping Cart</a>
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
                             </div>
-                        </div>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        </div> --}}
+                        <a href="{{route('product.contact')}}" class="nav-item nav-link">Contact</a>
                     </div>
-                    <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
-                        <a href="" class="btn px-0">
-                            <i class="fas fa-heart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle"
-                                style="padding-bottom: 2px;">0</span>
-                        </a>
-                        <a href={{ route('users.cart') }} class="btn px-0 ml-3">
-                            <i class="fas fa-shopping-cart text-primary"></i>
-                            <span class="badge text-secondary border border-secondary rounded-circle"
-                                style="padding-bottom: 2px;">0</span>
-                        </a>
-                    </div>
+
                 </div>
             </nav>
         </div>

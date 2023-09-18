@@ -13,7 +13,7 @@ class ProductController
 {
     public function list()
     {
-        $products = Product::latest()->get();;
+        $products = Product::latest()->get();
         $categories = Category::all();
         // return $products;
         return view('admin.products.list', compact('products', 'categories'));

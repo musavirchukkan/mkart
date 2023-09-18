@@ -6,7 +6,7 @@
             <div class="pt-8">
                 <h1 class="errors-titles">403</h1>
                 <p>Sorry you are not authorized to access the website</p>
-                <a href={{ route('admin.dashboard') }} class="text-blue btn btn-primary">Back to page</a>
+                <a href={{route('homepage')}} class="text-blue btn btn-primary">Back to page</a>
             </div>
         </div>
     </div>
