@@ -56,16 +56,17 @@
                                                 <h5 class="mb-1">Product Image</h5>
                                                 <p>Add Product main Image.</p>
                                                 <!-- input -->
-                                                <input type="file" name="main_image" class="form-control">
+                                                <input type="file" id="main_image" name="main_image"
+                                                    class="form-control">
                                             </div>
                                             <div>
                                                 <!-- heading -->
                                                 <h5 class="mb-1">Product Gallery</h5>
                                                 <p>Add Product Gallery Images.</p>
-                                                <!-- input -->
-                                                <div action="#" class="d-block dropzone border-dashed rounded-2">
+                                                {{-- <!-- input -->dropzone --}}
+                                                <div class="d-block dropzone border-dashed rounded-2">
                                                     <div class="fallback">
-                                                        <input name="image" type="file" multiple />
+                                                        <input type="file" id="images" name="image[]" multiple>
                                                     </div>
                                                 </div>
                                             </div>
@@ -89,13 +90,13 @@
                                             <div class="mb-3">
                                                 <label class="form-label">Product Code</label>
                                                 <input type="text" name="product_code" class="form-control"
-                                                    placeholder="Enter Product Title">
+                                                    style="text-transform:uppercase" placeholder="MKT0##">
                                             </div>
                                             <!-- input -->
                                             <div class="mb-3">
                                                 <label class="form-label">Stock</label>
-                                                <input type="text" name="stock" class="form-control"
-                                                    placeholder="Enter Product Title">
+                                                <input type="number" name="stock" class="form-control"
+                                                    placeholder="Enter No of Stock">
                                             </div>
                                             <!-- input -->
                                             {{-- <div class="mb-3">
@@ -122,16 +123,20 @@
                                             <div class="mb-3">
                                                 <div class="d-flex justify-content-between">
                                                     <label class="form-label">Category</label>
-                                                    <a href="#!" class="btn-link fw-semi-bold">Add New</a>
+                                                    <a href="" class="btn-link fw-semi-bold" data-bs-toggle="modal"
+                                                        data-bs-target="#categoryModalInside">Add
+                                                        New Category</a>
+
                                                 </div>
                                                 <!-- select menu -->
                                                 <select class="form-select" name="category_id"
                                                     aria-label="Default select example">
                                                     <option value="">Select an Option</option>
-                                                    @foreach ($categories as $category)
-                                                        <option value="{{ $category->category_id }}">{{ $category->name }}
+                                                    {{-- @foreach ($categories as $category)
+                                                        <option value="{{ $category->category_id }}">
+                                                            {{ $category->category_name }}
                                                         </option>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </select>
                                             </div>
                                             <!-- tag -->
@@ -151,9 +156,9 @@
                                         <div class="mb-3">
                                             <label class="form-label">Status</label>
                                             <select class="form-select" name="status" aria-label="Default select example">
-                                                <option selected>Published</option>
-                                                <option value="1">Unpublished</option>
-                                                <option value="2">Draft</option>
+                                                <option selected value="1">Published</option>
+                                                <option value="2">Unpublished</option>
+                                                <option value="3">Draft</option>
                                             </select>
                                         </div>
 
@@ -166,12 +171,12 @@
                                         <!-- input -->
                                         <div class="mb-3">
                                             <label class="form-label">Regular Price</label>
-                                            <input type="text" name="price" class="form-control" placeholder="₹ 49.00">
+                                            <input type="number" name="price" class="form-control" placeholder="₹ 49.00">
                                         </div>
                                         <!-- input -->
                                         <div class="mb-3">
                                             <label class="form-label">Sale Price</label>
-                                            <input type="text" name="sale_price" class="form-control"
+                                            <input type="number" name="sale_price" class="form-control"
                                                 placeholder="₹ 49.00">
                                         </div>
                                         <!-- input -->
@@ -199,5 +204,5 @@
 
         {{-- </div> --}}
     </div>
-
+    @include('admin.layout.modal')
 @endsection

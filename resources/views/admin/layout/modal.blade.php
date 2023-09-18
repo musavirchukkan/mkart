@@ -8,7 +8,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="category-name" class="col-form-label">Category Name :</label>
                         <input type="text" name="category_name" class="form-control" id="category-name">
@@ -44,7 +44,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form>
+                <form enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="category-name" class="col-form-label">Category Name :</label>
                         <input type="text" name="category_name_inside" class="form-control" id="category-name">
@@ -80,8 +80,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form> {{-- action={{ route('admin.products.save') }} method="POST" enctype="multipart/form-data" --}}
-                    {{-- @csrf --}}
+                <form id="productForm" enctype="multipart/form-data"> {{-- action={{ route('admin.products.save') }} method="POST" enctype="multipart/form-data" --}}
+                    @csrf
                     <div class="row">
                         <div class="col-lg-8 col-12">
                             <!-- card -->
@@ -118,16 +118,18 @@
                                             <h5 class="mb-1">Product Image</h5>
                                             <p>Add Product main Image.</p>
                                             <!-- input -->
-                                            <input type="file" name="main_image" class="form-control">
+                                            <input type="file" id="main_image" name="main_image"
+                                                class="form-control">
                                         </div>
                                         <div>
                                             <!-- heading -->
                                             <h5 class="mb-1">Product Gallery</h5>
                                             <p>Add Product Gallery Images.</p>
-                                            <!-- input -->
-                                            <div action="#" class="d-block dropzone border-dashed rounded-2">
+                                            {{-- <!-- input -->dropzone --}}
+                                            <div class="d-block  border-dashed rounded-2">
                                                 <div class="fallback">
-                                                    <input name="image" type="file" multiple />
+                                                    <input type="file" class="form-control" id="images"
+                                                        name="image[]" multiple>
                                                 </div>
                                             </div>
                                         </div>
@@ -259,11 +261,13 @@
                             </div> --}}
                         </div>
                     </div>
+
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-primary saveProduct">Save Product</button>
+
             </div>
         </div>
     </div>

@@ -29,29 +29,41 @@ class ProductController
 
         $input = $request->validated();
 
-        if ($request->hasFile('main_image')) {
-            $extension = $request->image->extension();
-            $filename = Str::random(6) . "_" . time() . "_product." . $extension;
-            $request->image->storeAs('images/products', $filename);
-            $input['main_image'] = $filename;
+        // Process the main image
+        $mainImage = $request->file('main_image');
+        $mainImagePath = null;
+
+        if ($mainImage) {
+            $mainImageExtension = $mainImage->getClientOriginalExtension();
+            $mainImageFileName = 'main_image_' . Str::random(6) . "_" . time() . "_product." . $mainImageExtension;
+            $mainImagePath = $mainImage->storeAs('images/products', $mainImageFileName);
         }
 
-        Product::create([
-            'product_name' => $input['product_name'],
-            'price' => $input['price'],
-            'sale_price' => $input['sale_price'],
-            'category_id' => $input['category_id'],
-            'main_image' => $input['main_image'],
-            'description' => $input['description'],
-            'tags' => $input['tags'],
-            'stock' => $input['stock'],
-            'is_stock' => $input['is_stock'],
-            'status' => $input['status'],
+        // Create a new Product instance with the validated data
+        $product = new Product($input);
+        $product->main_image = $mainImagePath;
+        // return $mainImageFileName;
+        // Save the product to the database
+        $product->save();
 
-        ]);
-        return ['status' => 200, 'message' => 'Product Saved successfully'];
+        // Process and save additional images
+        // $additionalImages = $request->file('image');
+
+        // if ($additionalImages && is_array($additionalImages)) {
+        //     foreach ($additionalImages as $image) {
+        //         $extension = $image->getClientOriginalExtension();
+        //         $filename = 'additional_image_' . Str::random(6) . "_" . time() . "_product." . $extension;
+        //         $image->storeAs('images/products', $filename);
+
+
+        //         $product->images()->create(['image_path' => $filename]);
+        //     }
+        // }
+
+        // Redirect or return a response as needed
         return redirect()->route('admin.products.list')->with('message', 'Product Saved successfully');
     }
+
 
     public function details($id)
     {
@@ -73,13 +85,13 @@ class ProductController
     {
         $input = $request->validated();
         $product = Product::find(decrypt($request->product_id));
-        if ($request->hasFile('image')) {
-            Storage::delete('images/products/' . $product->image);
+        if ($request->hasFile('main_image')) {
+            Storage::delete('images/products/' . $product->main_image);
 
-            $extension = $request->image->extension();
-            $filename = Str::random(6) . "_" . time() . "_product." . $extension;
-            $request->image->storeAs('images/products', $filename);
-            $input['image'] = $filename;
+            $extension = $request->main_image->extension();
+            $filename = 'main_image_' . Str::random(6) . "_" . time() . "_product." . $extension;
+            $filepath = $request->main_image->storeAs('images/products', $filename);
+            $input['main_image'] = $filepath;
         }
 
         $product->update($input);
@@ -89,6 +101,7 @@ class ProductController
     public function delete($id)
     {
         $product = Product::find(decrypt($id));
+
         if (!empty($product->image)) {
             Storage::delete('images/products/' . $product->image);
         }
