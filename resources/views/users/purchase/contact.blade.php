@@ -2,19 +2,21 @@
 @section('title', 'Cart')
 @section('content')
 
-    <!-- Breadcrumb Start -->
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <span class="breadcrumb-item active">Contact</span>
-                </nav>
-            </div>
+
+<!-- Breadcrumb Start -->
+
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <div class="col-12">
+            <nav class="breadcrumb bg-light mb-30">
+                <a class="breadcrumb-item text-dark" href="#">Home</a>
+                <a class="breadcrumb-item text-dark" href="#">Shop</a>
+                <span class="breadcrumb-item active">Shop Detail</span>
+            </nav>
         </div>
     </div>
-    <!-- Breadcrumb End -->
-
+</div>
+<!-- Breadcrumb End -->
 
     <!-- Contact Start -->
     <div class="container-fluid">

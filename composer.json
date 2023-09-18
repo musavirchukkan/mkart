@@ -66,11 +66,7 @@
         }
     },
     "minimum-stability": "stable",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://repo.vapor.build"
-        }
-    ]
+    "prefer-stable": true
+
+
 }

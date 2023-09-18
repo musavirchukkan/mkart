@@ -16,3 +16,22 @@
 
 <!-- Template Javascript -->
 <script src={{ asset('js/main.js') }}></script>
+
+
+
+<!-- Libs JS -->
+{{-- <script src="../assets/libs/jquery/dist/jquery.min.js"></script> --}}
+{{-- <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script> --}}
+<script src={{asset("lib/feather-icons/dist/feather.min.js")}}></script>
+<script src={{asset("lib/simplebar/dist/simplebar.min.js")}}></script>
+
+
+
+
+<!-- Theme JS -->
+<script src={{asset('js/user/theme.min.js')}}></script>
+<!-- popper js -->
+<script src={{asset("lib/@popperjs/core/dist/umd/popper.min.js")}}></script>
+<!-- tippy js -->
+<script src={{asset("lib/tippy.js/dist/tippy-bundle.umd.min.js")}}></script>
+<script src={{asset("js/user/vendors/tooltip.js")}}></script>
