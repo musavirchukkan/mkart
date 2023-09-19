@@ -65,10 +65,13 @@
                         </div>
                         <div class="col-md-12">
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="shipto">
+
+                                {{-- <input type="checkbox" class="custom-control-input" id="shipto">
                                 <label class="custom-control-label" for="shipto" data-toggle="collapse"
-                                    data-target="#shipping-address">Ship to different address</label>
+                                    data-target="#shipping-address">Ship to different address</label> --}}
                             </div>
+                            <button class="custom-control-input" id="shipto" data-toggle="collapse"
+                                data-target="#shipping-address"> hello </button>
                         </div>
                     </div>
                 </div>

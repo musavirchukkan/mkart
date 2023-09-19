@@ -25,9 +25,9 @@
 
 
 <!-- Libs CSS -->
-<link href={{asset("lib/bootstrap-icons/font/bootstrap-icons.css")}} rel="stylesheet">
-<link href={{asset("lib/-mdi/font/css/materialdesignicons.min.css")}} rel="stylesheet">
-<link href={{asset("lib/simplebar/dist/simplebar.min.css")}} rel="stylesheet">
+<link href={{ asset('lib/bootstrap-icons/font/bootstrap-icons.css') }} rel="stylesheet">
+<link href={{ asset('lib/-mdi/font/css/materialdesignicons.min.css') }} rel="stylesheet">
+<link href={{ asset('lib/simplebar/dist/simplebar.min.css') }} rel="stylesheet">
 
 
 
@@ -42,4 +42,3 @@
 
 
 <!-- Theme CSS -->
-
