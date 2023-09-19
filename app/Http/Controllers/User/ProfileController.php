@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserAddressRequest;
+use App\Http\Requests\UserDetailsUpdateRequest;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\Product;
@@ -12,16 +13,44 @@ use App\Models\UserAddress;
 use App\Models\UserFavorite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
 
 class ProfileController extends Controller
 {
     public function profile()
     {
         $categories = Category::latest()->take(8)->get() ;
-        $profile = User::where('user_id',auth()->user()->id)->first();
-
-
+        $profile = User::find(Auth::id());
         return view('users.profile.userDetails',compact('categories','profile'));
+    }
+    public function editProfile()
+    {
+        $categories = Category::latest()->take(8)->get();
+        $profile = User::find(Auth::id());
+        return view('users.profile.editProfile',compact('categories','profile'));
+    }
+    public function doEditProfile(Request $request)
+    {
+        $input = $request->all();
+        $user = User::find(Auth::id());
+        $Image = $request->file('image');
+        $ImagePath = $user->image;
+
+        if ($Image) {
+            Storage::delete($user->image);
+            $ImageExtension = $Image->getClientOriginalExtension();
+            $ImageFileName = 'image_' . Str::random(6) . "_" . time() . "_user." . $ImageExtension;
+            $ImagePath = $Image->storeAs('images/users', $ImageFileName);
+        }
+        $user -> fill($input);
+        $user->image = $ImagePath;
+
+        $user->save();
+
+
+        return redirect()->route('user.profile')->with('success','Profile Updated Successfully');
     }
 
     public function address()
@@ -70,8 +99,16 @@ class ProfileController extends Controller
     public function whishlist()
     {
         $categories = Category::latest()->take(8)->get();
-        $whishlist = UserFavorite::where('user_id',Auth::id())->get();
-        return view('users.profile.whishlist',compact('categories','whishlist'));
+        $wishlists = UserFavorite::where('user_id',Auth::id())->get();
+        return view('users.profile.whishlist',compact('categories','wishlists'));
+    }
+    public function deleteWhishlist($id)
+    {
+        $wishlist = UserFavorite::find(decrypt($id));
+
+        $wishlist->delete();
+
+        return redirect()->route('user.whishlist')->with('success','Product Deleted Successfully');
     }
 
     public function orders()

@@ -34,16 +34,22 @@
                             aria-haspopup="true" aria-expanded="false" data-offset="0, 20">
                             <div class="profile-pic mr-3">
                                 @if (Auth::user()->image)
-                                    <img src="{{ asset('storage/' . $user->image) }}" alt="User Image">
+                                    <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="User Image">
                                 @else
                                     <img src="{{ asset('img/Admin/images/avatar/avatar-1.png') }}" alt="Default Image">
                                 @endif
 
                             </div>
                             <div class="profile-info">
+                                @if(Auth::user()->username)
+                                <h3 class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    {{ Auth::user()->username }}
+                                </h3>
+                                @else
                                 <h3 class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ Auth::user()->f_name }}
                                 </h3>
+                                @endif
                                 <span>{{ Auth::user()->email }}</span>
                             </div>
 
@@ -60,10 +66,6 @@
                             <a class="dropdown-item" href={{ route('user.address') }}><span class="icon icon-people"></span>Address</a>
                             <a class="dropdown-item" href={{ route('user.settings') }}><span class="icon icon-cog"></span>Settings</a>
                             <a class="dropdown-item text-danger" href="{{ route('logout') }}"><span class="icon icon-sign-out"></span>Logout</a>
-
-
-
-
 
                         </div>
                     </div>

@@ -21,7 +21,7 @@ Route::controller(LoginController::class)->group(function () {
 
     route::name('product.')->controller(PurchaseController::class)->group(function () {
         Route::get('products',  'shop')->name('shop');
-        Route::get('details', 'details')->name('details');
+        Route::get('details/{id}', 'details')->name('details');
         Route::get('category/{id}', 'category')->name('category');
         Route::get('category', 'categoryList')->name('category.list');
     });
@@ -35,6 +35,7 @@ Route::controller(LoginController::class)->group(function () {
                 Route::get('cart',  'cart')->name('cart');
                 Route::get('add-to-cart/{id}', 'addToCart')->name('addToCart');
                 Route::get('checkout', 'checkout')->name('checkout');
+                Route::get('do-whishlist/{id}', 'doWhishlist')->name('do.whishlist');
             });
 
             Route::get('contact', 'contact')->name('contact');
@@ -43,6 +44,8 @@ Route::controller(LoginController::class)->group(function () {
         Route::name('user.')->prefix('user')->controller(ProfileController::class)->group(function () {
 
             Route::get('profile', 'profile')->name('profile');
+            Route::get('profile/edit', 'editProfile')->name('profile.edit');
+            Route::post('profile/do-edit', 'doEditProfile')->name('profile.doEdit');
             Route::get('address', 'address')->name('address');
             Route::get('address/add', 'addAddress')->name('address.add');
             Route::post('address/do-add', 'doAddAddress')->name('address.doAdd');
@@ -50,6 +53,7 @@ Route::controller(LoginController::class)->group(function () {
             Route::post('address/edit/{id}', 'doEditAddress')->name('address.doEdit');
             Route::get('address/delete/{id}', 'deleteAddress')->name('address.delete');
             Route::get('wishlist', 'whishlist')->name('whishlist');
+            Route::get('wishlist/delete/{id}', 'deleteWhishlist')->name('wishlist.delete');
             Route::get('orders', 'orders')->name('orders');
             Route::get('settings', 'settings')->name('settings');
         });

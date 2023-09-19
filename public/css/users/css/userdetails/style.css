@@ -60,6 +60,7 @@ h2 {
   flex: 0 0 50px; }
   .custom-dropdown .dropdown-link .profile-pic img {
     width: 50px;
+    height: 50px;
     border-radius: 50%; }
 
 .custom-dropdown .dropdown-link .profile-info h3, .custom-dropdown .dropdown-link .profile-info span {

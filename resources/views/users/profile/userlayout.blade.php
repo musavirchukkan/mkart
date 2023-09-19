@@ -55,14 +55,14 @@
                                         <div
                                             class="avatar-xxl avatar-indicators avatar-online me-2 position-relative d-flex justify-content-end align-items-end mt-n10">
                                             @if (Auth::user()->image)
-                                                <img src="{{ asset('storage/' . $user->image) }}" alt="User Image"
+                                                <img src="{{ asset( Auth::user()->image) }}" alt="User Image"
                                                     class="avatar-xxl
-                                    rounded-circle border border-2 ">
+                                                    rounded-circle border border-2 ">
                                             @else
                                                 <img src="{{ asset('img/Admin/images/avatar/avatar-1.png') }}"
                                                     alt="Default Image"
                                                     class="avatar-xxl
-                                    rounded-circle border border-2 ">
+                                                    rounded-circle border border-2 ">
                                             @endif
 
                                             <a href="#!" class="position-absolute top-0 right-0 me-2">
@@ -73,15 +73,15 @@
                                         <!-- text -->
                                         <div class="lh-1">
                                             <h2 class="mb-0">
-                                                Jitu Chauhan
+                                                {{Auth::user()->f_name}} {{Auth::user()->l_name}}
                                                 <a href="#!" class="text-decoration-none">
                                                 </a>
                                             </h2>
-                                            <p class="mb-0 d-block">@imjituchauhan</p>
+                                            <p class="mb-0 d-block">@ {{Auth::user()->username}}</p>
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="#!" class="btn btn-outline-primary d-none d-md-block">Edit Profile</a>
+                                        <a href="{{route('user.profile.edit')}}" class="btn btn-outline-primary d-none d-md-block">Edit Profile</a>
                                     </div>
                                 </div>
                                 <!-- nav -->

@@ -13,4 +13,8 @@ class Category extends Model
         'category_name',
         'category_image',
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id');
+    }
 }
