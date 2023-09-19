@@ -44,6 +44,11 @@ Route::controller(LoginController::class)->group(function () {
 
             Route::get('profile', 'profile')->name('profile');
             Route::get('address', 'address')->name('address');
+            Route::get('address/add', 'addAddress')->name('address.add');
+            Route::post('address/do-add', 'doAddAddress')->name('address.doAdd');
+            Route::get('address/edit/{id}', 'editAddress')->name('address.edit');
+            Route::post('address/edit/{id}', 'doEditAddress')->name('address.doEdit');
+            Route::get('address/delete/{id}', 'deleteAddress')->name('address.delete');
             Route::get('wishlist', 'whishlist')->name('whishlist');
             Route::get('orders', 'orders')->name('orders');
             Route::get('settings', 'settings')->name('settings');
