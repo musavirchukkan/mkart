@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('street');
             $table->string('city');
             $table->string('state');
+            $table->string('country');
             $table->string('pincode');
-            $table->string('number', 12);
+            $table->string('phone', 12);
             $table->string('email', 100);
             $table->timestamps();
         });
