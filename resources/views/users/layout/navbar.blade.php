@@ -45,10 +45,10 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav mr-auto py-0">
-                        <a href="{{ route('homepage') }}" class="nav-item nav-link active">Home</a>
-                        <a href="{{ route('product.shop') }}" class="nav-item nav-link">Shop</a>
-                        <a href="{{ route('product.category.list') }}" class="nav-item nav-link">Categories</a>
-                        <a href="detail.html" class="nav-item nav-link">Track Order</a>
+                        <a href="{{ route('homepage') }}" class="nav-item nav-link {{ Request::is('/') ? 'active' : '' }}">Home</a>
+                        <a href="{{ route('product.shop') }}" class="nav-item nav-link {{ Request::is('products*') ? 'active' : '' }}">Shop</a>
+                        <a href="{{ route('product.category.list') }}" class="nav-item nav-link {{ Request::is('category*') ? 'active' : '' }}">Categories</a>
+                        <a href="detail.html" class="nav-item nav-link {{ Request::is('track-order*') ? 'active' : '' }}">Track Order</a>
                         {{-- <div class="nav-item dropdown">
                             <a href={{ route('product.cart') }} class="nav-link dropdown-toggle"
                                 data-toggle="dropdown">Pages <i class="fa fa-angle-down mt-1"></i></a>
@@ -57,7 +57,7 @@
                                 <a href="checkout.html" class="dropdown-item">Checkout</a>
                             </div>
                         </div> --}}
-                        <a href="{{ route('product.contact') }}" class="nav-item nav-link">Contact</a>
+                        <a href="{{ route('product.contact') }}" class="nav-item nav-link {{ Request::is('contact*') ? 'active' : '' }}">Contact</a>
                     </div>
 
                 </div>

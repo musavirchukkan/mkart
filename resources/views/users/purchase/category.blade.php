@@ -12,163 +12,21 @@
                 <div class="row px-xl-5 pb-3">
                     @foreach ($categories as $category)
                         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                            <a class="text-decoration-none" href="">
+                            <a class="text-decoration-none" href="{{ route('product.category', encrypt($category->category_id))}}">
                                 <div class="cat-item d-flex align-items-center mb-4">
                                     <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                        <img class="img-fluid" src={{ asset('img/users/img/cat-1.jpg') }} alt="">
+                                        <img class="img-fluid" src={{ asset($category->category_image) }} alt="">
                                     </div>
                                     <div class="flex-fill pl-3">
                                         <h6>{{ $category->category_name }}</h6>
-                                        <small class="text-body">100 Products</small>
+                                        <small class="text-body">{{$category->products->count()}} Products</small>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     @endforeach
 
-                    {{-- <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-2.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-3.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-4.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-4.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-3.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-2.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-1.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-2.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-1.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-4.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                        <a class="text-decoration-none" href="">
-                            <div class="cat-item img-zoom d-flex align-items-center mb-4">
-                                <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                    <img class="img-fluid" src={{ asset('img/users/img/cat-3.jpg') }} alt="">
-                                </div>
-                                <div class="flex-fill pl-3">
-                                    <h6>Category Name</h6>
-                                    <small class="text-body">100 Products</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div> --}}
+
                 </div>
             </div>
             <!-- Categories End -->

@@ -21,8 +21,8 @@
 <script src={{ asset('lib/flatpickr/dist/flatpickr.min.js') }}></script>
 
 <!-- Libs JS -->
-<script src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script>
-<script src="{{ asset('lib/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+{{-- <script src="{{ asset('lib/jquery/dist/jquery.min.js') }}"></script> --}}
+{{-- <script src="{{ asset('lib/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script> --}}
 <script src={{ asset('lib/feather-icons/dist/feather.min.js') }}></script>
 <script src={{ asset('lib/simplebar/dist/simplebar.min.js') }}></script>
 

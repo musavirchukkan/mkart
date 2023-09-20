@@ -129,17 +129,16 @@
                                 <a class="btn btn-outline-dark btn-square"
                                     href="{{ route('product.addToCart', encrypt($feature->product_id)) }}"><i
                                         class="fa fa-shopping-cart"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                <a class="btn btn-outline-dark btn-square" href="{{route('product.do.whishlist',encrypt($feature->product_id))}}"><i
                                         class="far fa-heart"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i
-                                        class="fa fa-sync-alt"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i
-                                        class="fa fa-search"></i></a>
+
+                                <a class="btn btn-outline-dark btn-square" href="{{route('product.details',encrypt($feature->product_id))}}"><i
+                                        class="fa fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">
                             <a class="h6 text-decoration-none text-truncate"
-                                href="">{{ $feature->product_name }}</a>
+                                href="{{route('product.details',encrypt($feature->product_id))}}">{{ $feature->product_name }}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
                                 <h5>₹{{ $feature->sale_price }}</h5>
                                 <h6 class="text-muted ml-2"><del>₹{{ $feature->price }}</del></h6>
@@ -196,30 +195,22 @@
                             <img class="img-fluid w-100" src={{ $product->main_image }} alt="">
                             <div class="product-action">
                                 <a class="btn btn-outline-dark btn-square"
-                                    href={{ route('product.addToCart', encrypt($product->product_id)) }}><i
+                                    href="{{ route('product.addToCart', encrypt($product->product_id)) }}"><i
                                         class="fa fa-shopping-cart"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i
+                                <a class="btn btn-outline-dark btn-square" href="{{route('product.do.whishlist',encrypt($product->product_id))}}"><i
                                         class="far fa-heart"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i
-                                        class="fa fa-sync-alt"></i></a>
-                                <a class="btn btn-outline-dark btn-square" href=""><i
-                                        class="fa fa-search"></i></a>
+
+                                <a class="btn btn-outline-dark btn-square" href="{{route('product.details',encrypt($product->product_id))}}"><i
+                                        class="fa fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="text-center py-4">
-                            <a class="h6 text-decoration-none text-truncate" href="">Product Name Goes Here</a>
+                            <a class="h6 text-decoration-none text-truncate" href="{{route('product.details',encrypt($product->product_id))}}">{{ $product->product_name }}</a>
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <h5>$123.00</h5>
-                                <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                                <h5>₹{{ $product->sale_price }}</h5>
+                                <h6 class="text-muted ml-2"><del>₹{{ $product->price }}</del></h6>
                             </div>
-                            <div class="d-flex align-items-center justify-content-center mb-1">
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small class="fa fa-star text-primary mr-1"></small>
-                                <small>(99)</small>
-                            </div>
+
                         </div>
                     </div>
                 </div>

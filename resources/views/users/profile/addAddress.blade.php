@@ -8,7 +8,7 @@
                 </h5>
                 <div class="bg-light p-30 mb-5">
                     <form action="{{route('user.address.doAdd')}}" method="post">
-                @csrf
+                    @csrf
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <label>First Name</label>

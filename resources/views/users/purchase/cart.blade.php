@@ -2,20 +2,6 @@
 @section('title', 'Cart')
 @section('content')
 
-    <!-- Breadcrumb Start -->
-
-    <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-12">
-                <nav class="breadcrumb bg-light mb-30">
-                    <a class="breadcrumb-item text-dark" href="#">Home</a>
-                    <a class="breadcrumb-item text-dark" href="#">Shop</a>
-                    <span class="breadcrumb-item active">Shop Detail</span>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
 
 
     <!-- Cart Start -->
@@ -55,9 +41,10 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">₹ {{ $cart->price }}</td>
-                                <td class="align-middle"><button class="btn btn-sm btn-danger"><i
-                                            class="fa fa-times"></i></button></td>
+                                <td class="align-middle">₹ {{ $cart->product->price }}</td>
+                                <td class="align-middle">
+                                    <a href={{ route('product.removeFromCart', encrypt($cart->product_id)) }} class="btn btn-sm btn-danger"><i
+                                            class="fa fa-times"></i></a></td>
                             </tr>
                         @endforeach
 
