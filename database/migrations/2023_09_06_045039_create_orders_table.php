@@ -17,11 +17,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->string('billing_name');
+            $table->string('billing_email');
+            $table->string('billing_phone');
             $table->unsignedBigInteger('address_id');
             $table->foreign('address_id')->references('address_id')->on('user_addresses');
 
             $table->double('price', 15, 2);
-            $table->enum('payment_status', ['paid', 'refunded', 'canceled']);
+            $table->enum('payment_status', ['not paid', 'paid', 'refunded', 'canceled']);
             $table->enum('mode_of_payment', ['cod', 'Gpay', 'Visa', 'Rupay', 'Mastercard']);
             $table->enum('status', ['placed', 'confirmed', 'shiped', 'delivered', 'returned']);
             $table->timestamps();

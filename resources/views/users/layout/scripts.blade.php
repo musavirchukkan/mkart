@@ -41,3 +41,4 @@
 <script src="{{ asset('lib/bs-stepper/dist/js/bs-stepper.min.js') }}"></script>
 <script src="{{ asset('js/user/vendors/beStepper.js') }}"></script>
 <script src={{ asset('js/user/theme.min.js') }}></script>
+<script src="{{ asset('js/myscript.js') }}"></script>

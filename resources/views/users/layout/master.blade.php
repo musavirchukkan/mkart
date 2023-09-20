@@ -6,6 +6,13 @@
 </head>
 
 <body>
+    @if (session('message'))
+        <div class="alert alert-success d-flex align-items-center justify-content-center m-10" id="session-message">
+
+            {{ session('message') }}
+    @endif
+    </div>
+
     <!-- Topbar Start -->
     @include('users.layout.topbar')
     <!-- Topbar End -->

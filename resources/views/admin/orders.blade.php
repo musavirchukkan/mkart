@@ -24,6 +24,8 @@
                                     <th scope="col">Total</th>
                                     <th scope="col">Payment Status</th>
                                     <th scope="col">Payment Method</th>
+                                    <th scope="col">Status</th>
+
                                     <th scope="col">Actions</th>
 
 
@@ -34,7 +36,7 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>#MK0{{ $order->order_id }}</td>
+                                        <td>#MK0{{ $order->order_number }}</td>
                                         <td>{{ $order->billing_name }}</td>
                                         <td>{{ $order->created_at }}</td>
                                         <td>{{ $order->price }}</td>
