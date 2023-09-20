@@ -34,6 +34,7 @@ Route::controller(LoginController::class)->group(function () {
             Route::prefix('user')->group(function () {
                 Route::get('cart',  'cart')->name('cart');
                 Route::get('add-to-cart/{id}', 'addToCart')->name('addToCart');
+                Route::get('remove-from-cart/{id}', 'removeFromCart')->name('removeFromCart');
                 Route::get('checkout', 'checkout')->name('checkout');
                 Route::get('do-whishlist/{id}', 'doWhishlist')->name('do.whishlist');
             });

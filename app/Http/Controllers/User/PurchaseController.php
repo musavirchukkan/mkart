@@ -31,6 +31,11 @@ class PurchaseController
         ]);
         return redirect()->back();
     }
+    public function removeFromCart($id)
+    {
+        Cart::find(decrypt($id))->delete();
+        return redirect()->back();
+    }
 
     public function shop()
     {
@@ -41,7 +46,9 @@ class PurchaseController
     public function checkout()
     {
         $categories = Category::all();
-        return view('users.purchase.checkout', compact('categories'));
+        $carts = Cart::where('user_id', Auth::user()->user_id)->get();
+        $user = Auth::user();
+        return view('users.purchase.checkout', compact('categories', 'carts', 'user'));
     }
     public function contact()
     {

@@ -47,7 +47,7 @@ class CategorySeeder extends Seeder
         ]);
         Category::create([
             'category_name' => 'Toys',
-            'category_image' => 'images/categories/ftoys.jpg'
+            'category_image' => 'images/categories/toys.jpg'
         ]);
         Category::create([
             'category_name' => 'Watch',

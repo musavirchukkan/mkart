@@ -41,7 +41,7 @@ return new class extends Migration
             $table->string('main_image')->nullable();
             $table->longText('description');
             $table->string('tags')->nullable();
-            $table->srting('product_code')->unique()->nullable();
+            $table->string('product_code')->unique()->nullable();
             $table->integer('stock')->default(0);
             $table->boolean('is_stock')->comment('1:In Stock,0:Out Stock')->default(0);
             $table->boolean('is_featured')->comment('1:Featured,0:Not Featured')->default(0);

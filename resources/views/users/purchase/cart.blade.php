@@ -41,9 +41,10 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="align-middle">₹ {{ $cart->price }}</td>
-                                <td class="align-middle"><button class="btn btn-sm btn-danger"><i
-                                            class="fa fa-times"></i></button></td>
+                                <td class="align-middle">₹ {{ $cart->product->price }}</td>
+                                <td class="align-middle">
+                                    <a href={{ route('product.removeFromCart', encrypt($cart->product_id)) }} class="btn btn-sm btn-danger"><i
+                                            class="fa fa-times"></i></a></td>
                             </tr>
                         @endforeach
 
