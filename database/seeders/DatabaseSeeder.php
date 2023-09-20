@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class
         ]);
 
-        $product = Product::factory(1000)->create()->each(function ($product) {
+        $product = Product::factory(100)->create()->each(function ($product) {
             ProductImage::factory(5)->create([
                 'product_id' => $product->product_id,
             ]);

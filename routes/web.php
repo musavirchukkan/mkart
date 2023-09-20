@@ -36,6 +36,7 @@ Route::controller(LoginController::class)->group(function () {
                 Route::get('add-to-cart/{id}', 'addToCart')->name('addToCart');
                 Route::get('remove-from-cart/{id}', 'removeFromCart')->name('removeFromCart');
                 Route::get('checkout', 'checkout')->name('checkout');
+                Route::post('order-process', 'orderProcess')->name('order.process');
                 Route::get('do-whishlist/{id}', 'doWhishlist')->name('do.whishlist');
             });
 
@@ -56,6 +57,7 @@ Route::controller(LoginController::class)->group(function () {
             Route::get('wishlist', 'whishlist')->name('whishlist');
             Route::get('wishlist/delete/{id}', 'deleteWhishlist')->name('wishlist.delete');
             Route::get('orders', 'orders')->name('orders');
+            Route::get('orders/details/{id}', 'orderDetails')->name('orders.details');
             Route::get('settings', 'settings')->name('settings');
         });
     });

@@ -24,6 +24,10 @@ class Product extends Model
         return $this->hasMany(ProductImage::class, 'product_id');
     }
 
+    public function orderLines()
+    {
+        return $this->hasMany(OrderLine::class, 'product_id');
+    }
 
     public function getStatusTextAttribute()
     {

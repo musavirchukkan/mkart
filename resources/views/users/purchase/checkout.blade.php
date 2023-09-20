@@ -6,141 +6,120 @@
 
     <!-- Checkout Start -->
     <div class="container-fluid">
-        <div class="row px-xl-5">
-            <div class="col-lg-8">
-                <div id="accordion">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
-                                    aria-expanded="true" aria-controls="collapseOne">
-                                    Billing Details
-                                </button>
-                            </h5>
-                        </div>
+        <form action="{{ route('product.order.process') }}" method="post">
+            @csrf
+            <div class="row px-xl-5">
+                <div class="col-lg-8">
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <a class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        Billing Details
+                                    </a>
+                                </h5>
+                            </div>
 
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-6 form-group">
-                                        <label>First Name</label>
-                                        <input class="form-control" type="text" placeholder="John">
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6 form-group">
+                                            <label>First Name</label>
+                                            <input class="form-control" name="b_fname" type="text" placeholder="John">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label>Last Name</label>
+                                            <input class="form-control" name="b_lname" type="text" placeholder="Doe">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label>E-mail</label>
+                                            <input class="form-control" name="b_email" type="text"
+                                                placeholder="example@email.com">
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            <label>Mobile No</label>
+                                            <input class="form-control" name="b_phone" type="text"
+                                                placeholder="+123 456 789">
+                                        </div>
+                                        <div>
+                                            <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                                data-target="#collapseTwo" aria-expanded="false"
+                                                aria-controls="collapseTwo">Next
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div class="col-md-6 form-group">
-                                        <label>Last Name</label>
-                                        <input class="form-control" type="text" placeholder="Doe">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label>E-mail</label>
-                                        <input class="form-control" type="text" placeholder="example@email.com">
-                                    </div>
-                                    <div class="col-md-6 form-group">
-                                        <label>Mobile No</label>
-                                        <input class="form-control" type="text" placeholder="+123 456 789">
-                                    </div>
-                                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Next
-                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                                    aria-expanded="false" aria-controls="collapseTwo">
-                                    Shiping Address
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="row">
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
+                                        aria-expanded="false" aria-controls="collapseTwo">
+                                        Shiping Address
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="row">
+                                        {{-- <a id="newads" data-bs-toggle="collapse" href="#collapseExample" role="button"
+                                            aria-expanded="false" aria-controls="collapseExample">
+                                            Add New Address
+                                        </a> --}}
+                                        @foreach ($user->addresses as $address)
+                                            <div class="col-sm-6 mb-2">
+                                                <div class="card card-bordered shadow-none">
+                                                    <!-- card body -->
+                                                    <div class="card-body">
+                                                        <div class="d-flex">
+                                                            <div class="form-check">
+                                                                <!-- checkbox -->
+                                                                <input class="form-check-input" type="radio"
+                                                                    name="Adress_id" value="{{ $address->address_id }}"
+                                                                    id="Adresses" data-gtm-form-interact-field-id="0">
+                                                                <label class="form-check-label ms-2" for="Adresses">
 
-                                    @foreach ($user->addresses as $address)
-                                        <div class="col-sm-6 mb-2">
-                                            <div class="card card-bordered shadow-none">
-                                                <!-- card body -->
-                                                <div class="card-body">
-                                                    <div class="d-flex">
-                                                        <div class="form-check">
-                                                            <!-- checkbox -->
-                                                            <input class="form-check-input" type="radio" name="Adress"
-                                                                value="{{ $address->id }}" id="paypal"
-                                                                data-gtm-form-interact-field-id="0">
-                                                            <label class="form-check-label ms-2" for="paypal">
+                                                                </label>
+                                                            </div>
+                                                            <div>
+                                                                <h5 class="card-title">{{ $address->fname }}
+                                                                    {{ $address->lname }}</h5>
+                                                                <h6 class='card-text'>{{ $address->email }}</h6>
+                                                                <h6 class='card-text'>{{ $address->phone }}</h6>
+                                                                <p class="card-text">{{ $address->house_name }},
+                                                                    {{ $address->street }},
+                                                                    {{ $address->city }}, {{ $address->state }},
+                                                                    {{ $address->country }}, {{ $address->pincode }} </p>
 
-                                                            </label>
-                                                        </div>
-                                                        <div>
-                                                            <h5 class="card-title">{{ $address->fname }}
-                                                                {{ $address->lname }}</h5>
-                                                            <h6 class='card-text'>{{ $address->email }}</h6>
-                                                            <h6 class='card-text'>{{ $address->phone }}</h6>
-                                                            <p class="card-text">{{ $address->house_name }},
-                                                                {{ $address->street }},
-                                                                {{ $address->city }}, {{ $address->state }},
-                                                                {{ $address->country }}, {{ $address->pincode }} </p>
 
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                        @endforeach
+
+
+
+                                        <div>
+                                            <a class="btn btn-primary" type="button" data-toggle="collapse"
+                                                data-target="#collapseThree" aria-expanded="false"
+                                                aria-controls="collapseThree">
+                                                Next
+                                            </a>
                                         </div>
-                                        {{-- <div class="col-sm-6 mb-2">
-                                            <div class="card border-dark">
-                                                <div class="card-body">
+                                        {{-- <div class="collapse" id="collapseExample">
+                                            <div class="card card-body">
+                                                <div class="bg-light p-10 mb-5">
 
-                                                    <h5 class="card-title">{{ $address->fname }} {{ $address->lname }}</h5>
-                                                    <h6 class='card-text'>{{ $address->email }}</h6>
-                                                    <h6 class='card-text'>{{ $address->phone }}</h6>
-                                                    <p class="card-text">{{ $address->house_name }}, {{ $address->street }},
-                                                        {{ $address->city }}, {{ $address->state }},
-                                                        {{ $address->country }}, {{ $address->pincode }} </p>
-                                                    <a href="#" class="btn btn-primary">Deliver Here</a>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                    @endforeach
-
-                                    {{-- <div class="col-sm-6 mb-2">
-                                        <div class="card border-dark">
-                                            <div class="card-body">
-
-                                                <h5 class="card-title">Special title treatment</h5>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6 mb-2">
-                                        <div class="card border-dark">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Special title treatment</h5>
-                                                <p class="card-text">With supporting text below as a natural lead-in to
-                                                    additional content.</p>
-                                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                                            </div>
-                                        </div>
-                                    </div> --}}
-                                    {{-- <a href="{{route('user.address.add')}}">Add New Address</a> --}}
-                                    <a data-bs-toggle="collapse" href="#collapseExample" role="button"
-                                        aria-expanded="false" aria-controls="collapseExample">
-                                        Add New Address
-                                    </a>
-                                    <div class="collapse" id="collapseExample">
-                                        <div class="card card-body">
-                                            <div class="bg-light p-10 mb-5">
-                                                <form action="{{ route('user.address.doAdd') }}" method="post">
-                                                    @csrf
                                                     <div class="row">
                                                         <div class="col-md-6 form-group">
                                                             <label>First Name</label>
                                                             <input class="form-control" name="fname" type="text"
-                                                                placeholder="John" required>
+                                                                placeholder="John">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>Last Name</label>
@@ -150,22 +129,22 @@
                                                         <div class="col-md-6 form-group">
                                                             <label>E-mail</label>
                                                             <input class="form-control" name="email" type="email"
-                                                                placeholder="example@email.com" required>
+                                                                placeholder="example@email.com">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>Mobile No</label>
                                                             <input class="form-control" name="phone" type="number"
-                                                                placeholder="919876543210" required>
+                                                                placeholder="919876543210">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>House Name</label>
                                                             <input class="form-control" name="house_name" type="text"
-                                                                placeholder="House Name" required>
+                                                                placeholder="House Name">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>Street</label>
                                                             <input class="form-control" name="street" type="text"
-                                                                placeholder="Street" required>
+                                                                placeholder="Street">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>Country</label>
@@ -467,75 +446,106 @@
                                                         <div class="col-md-6 form-group">
                                                             <label>City</label>
                                                             <input class="form-control" name="city" type="text"
-                                                                placeholder="Kozhikode" required>
+                                                                placeholder="Kozhikode">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>State</label>
                                                             <input class="form-control" name="state" type="text"
-                                                                placeholder="Kerala" required>
+                                                                placeholder="Kerala">
                                                         </div>
                                                         <div class="col-md-6 form-group">
                                                             <label>ZIP Code</label>
                                                             <input class="form-control" name="pincode" type="number"
-                                                                placeholder="123-456" required>
+                                                                placeholder="123-456">
                                                         </div>
-                                                        <div >
+                                                        <div>
                                                             <div class="row justify-content-between">
                                                                 <div class="col-4">
                                                                     <input type="checkbox" id="saveAddress"
-                                                                        name="vehicle1" value=1>
+                                                                        name="save_add" value=1>
                                                                     <label for="saveAddress"> Save Address for
                                                                         Later</label>
                                                                 </div>
                                                                 <div class="col-4">
-                                                                    <button type="submit" class="btn btn-primary">
-                                                                        Add Address
-                                                                    </button>
+                                                                    <a class="btn btn-primary" type="button"
+                                                                        data-toggle="collapse"
+                                                                        data-target="#collapseThree" aria-expanded="false"
+                                                                        aria-controls="collapseThree">
+                                                                        Next
+                                                                    </a>
                                                                 </div>
                                                             </div>
 
                                                         </div>
 
                                                     </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
 
+                                                </div>
+                                            </div>
+                                        </div> --}}
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse"
-                                    data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Payment Method
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
-                            data-parent="#accordion">
-                            <div class="card-body">
-                                <div class="card card-bordered shadow-none mb-2 col-6">
-                                    <!-- card body -->
-                                    <div class="card-body">
-                                        <div class="d-flex">
-                                            <div class="form-check">
-                                                <!-- checkbox -->
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    id="paypal" data-gtm-form-interact-field-id="0">
-                                                <label class="form-check-label ms-2" for="paypal">
-
-                                                </label>
-                                            </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <a class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree"
+                                        aria-expanded="false" aria-controls="collapseThree">
+                                        Payment Method
+                                    </a>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                                data-parent="#accordion">
+                                <div class="card-body">
+                                    <div class="card card-bordered shadow-none mb-2 col-12">
+                                        <!-- card body -->
+                                        <div class="card-body">
                                             <div>
-                                                <h5 class="mb-1"> Payment with Paypal</h5>
-                                                <p class="mb-0 fs-6">You will be redirected to PayPal website to complete
-                                                    your
-                                                    purchase
-                                                    securely.</p>
+                                                <div class="form-check row">
+                                                    <!-- checkbox -->
+                                                    <div class="row">
+                                                        <div class="col">
+                                                            <label class="radio-inline ">
+                                                                <input type="radio" name="modeOfPayment" value="cod"
+                                                                    checked>COD
+                                                            </label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="radio-inline ">
+                                                                <input type="radio" name="modeOfPayment"
+                                                                    value="gpay">Gpay
+                                                            </label>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label class="radio-inline ">
+                                                                <input type="radio" name="modeOfPayment"
+                                                                    value="visa">Visa
+                                                            </label>
+                                                        </div>
+
+
+                                                        <div class="col">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="modeOfPayment"
+                                                                    value="rupay">Rupay
+                                                            </label>
+                                                        </div>
+
+
+
+                                                        <div class="col">
+
+                                                            <label class="radio-inline">
+                                                                <input type="radio" name="modeOfPayment"
+                                                                    value="mastercard">Mastercard
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -543,56 +553,60 @@
                             </div>
                         </div>
                     </div>
+                    <button type="submit" class="btn btn-primary">Place Order</button>
                 </div>
-            </div>
-            <div class="col-lg-4">
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Order
-                        Total</span></h5>
-                <div class="bg-light p-30 mb-5">
-                    <div class="border-bottom">
-                        <h6 class="mb-3">Products</h6>
-                        @php
-                            $total = 0;
-                            $price = 0;
-                        @endphp
-                        @foreach ($carts as $cart)
-                        <div class="d-flex justify-content-between">
-                            <p>{{$cart->product->product_name}}</p>
-                            <p>&#8377;{{$cart->product->price}}</p>
+
+                <div class="col-lg-4">
+                    <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Order
+                            Total</span></h5>
+                    <div class="bg-light p-30 mb-5">
+                        <div class="border-bottom">
+                            <h6 class="mb-3">Products</h6>
                             @php
-                                $total += $cart->price;
-                                $price += $cart->product->price;
+                                $total = 0;
+                                $price = 0;
                             @endphp
-                        </div>
-                        @endforeach
+                            @foreach ($carts as $cart)
+                                <div class="d-flex justify-content-between">
+                                    <p>{{ $cart->product->product_name }}</p>
+                                    <p>&#8377;{{ $cart->product->price }}</p>
+                                    @php
+                                        $total += $cart->price;
+                                        $price += $cart->product->price;
+                                    @endphp
+                                </div>
+                            @endforeach
 
+                        </div>
+                        <div class="border-bottom pt-3 pb-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h6>Subtotal</h6>
+                                <h6>&#8377;{{ $price }}</h6>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6 class="font-weight-medium">Discount</h6>
+                                <h6 class="font-weight-medium">&#8377; @php
+                                    echo $price - $total;
+                                @endphp</h6>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <h6 class="font-weight-medium">Shipping</h6>
+                                <h6 class="font-weight-medium .text-success">Free</h6>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <div class="d-flex justify-content-between mt-2">
+                                <h5>Total</h5>
+                                <h5>&#8377;{{ $total }}</h5>
+                            </div>
+                        </div>
                     </div>
-                    <div class="border-bottom pt-3 pb-2">
-                        <div class="d-flex justify-content-between mb-3">
-                            <h6>Subtotal</h6>
-                            <h6>&#8377;{{$price}}</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Discount</h6>
-                            <h6 class="font-weight-medium">&#8377; @php
-                                echo $price-$total;
-                            @endphp</h6>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <h6 class="font-weight-medium">Shipping</h6>
-                            <h6 class="font-weight-medium .text-success">Free</h6>
-                        </div>
-                    </div>
-                    <div class="pt-2">
-                        <div class="d-flex justify-content-between mt-2">
-                            <h5>Total</h5>
-                            <h5>&#8377;{{$total}}</h5>
-                        </div>
-                    </div>
+
                 </div>
-
             </div>
-        </div>
+            <input type="hidden" name="total" value="{{ $total }}">
+
+        </form>
     </div>
     <!-- Checkout End -->
 @endsection
