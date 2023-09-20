@@ -36,9 +36,12 @@ return new class extends Migration
             $table->double('sale_price', 15, 2);
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('category_id')->on('categories')->nullable();
+            $table->unsignedBigInteger('sub_category_id')->nullable();
+            $table->foreign('sub_category_id')->references('sub_category_id')->on('sub_categories')->nullable();
             $table->string('main_image')->nullable();
             $table->longText('description');
             $table->string('tags')->nullable();
+            $table->srting('product_code')->unique()->nullable();
             $table->integer('stock')->default(0);
             $table->boolean('is_stock')->comment('1:In Stock,0:Out Stock')->default(0);
             $table->boolean('is_featured')->comment('1:Featured,0:Not Featured')->default(0);

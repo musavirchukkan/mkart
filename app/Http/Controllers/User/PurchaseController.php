@@ -61,12 +61,12 @@ class PurchaseController
     {
         $categories = Category::all();
         $products = Product::where('category_id',decrypt($id))->latest()->paginate(20);
-
         return view('users.purchase.shop', compact('categories', 'products'));
     }
     public function categoryList()
     {
         $categories = Category::all();
+
         return view('users.purchase.category', compact('categories'));
     }
     public function doWhishlist($id)

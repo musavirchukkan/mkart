@@ -4,7 +4,7 @@
 
 
 
-<div class="py-6">
+<div class="py-0">
     <div class="row">
       <!-- Section Heading -->
       <div class="col-md-12 col-12 mb-4">
@@ -16,12 +16,12 @@
           </div>
           <!-- icons -->
           <div class="d-flex align-items-center">
-            <a href="#!" class="btn btn-ghost btn-icon btn-sm rounded-circle">
+            {{-- <a href="#!" class="btn btn-ghost btn-icon btn-sm rounded-circle">
               <i  data-feather="settings" class="icon-xs"></i>
             </a>
             <a href="#!" class="btn btn-ghost btn-icon btn-sm rounded-circle">
               <i  data-feather="filter" class="icon-xs"></i>
-            </a>
+            </a> --}}
             <a href={{route('user.address.add')}} class="btn btn-primary ms-3">Add New Address</a>
           </div>
         </div>
@@ -30,7 +30,7 @@
 @foreach ($addresses as $address )
 
 
-      <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-5">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-12 mb-3">
         <!-- card -->
         <div class="card h-100">
           <!-- card body -->

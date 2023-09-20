@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'product_name' => fake()->name(),
             'price' => fake()->randomFloat(3),
             'sale_price' => fake()->randomFloat(3),
-            'category_id' => fake()->numberBetween(1, 5),
+            'category_id' => fake()->numberBetween(1, 18),
             'main_image' => fake()->imageUrl($width = 400, $height = 400),
             'description' => fake()->realText($maxNbChars = 200, $indexSize = 2),
             'stock' => fake()->numberBetween($min = 50, $max = 900),

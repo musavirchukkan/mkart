@@ -70,7 +70,7 @@
                         </div>
                         <div class="card-footer  justify-content-between d-flex">
                             <a href="{{route('product.shop')}}" class="btn btn-outline-primary">Continue Shopping</a>
-                            <a href="#!" class="btn btn-primary">Checkout</a>
+                            <a href="{{route('product.cart')}}" class="btn btn-primary">Checkout</a>
                         </div>
                     </div>
                 </div>
