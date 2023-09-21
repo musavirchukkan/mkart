@@ -39,7 +39,9 @@ class ProfileController extends Controller
         $ImagePath = $user->image;
 
         if ($Image) {
-            Storage::delete($user->image);
+            if ($user->image) {
+                Storage::delete($user->image);
+            }
             $ImageExtension = $Image->getClientOriginalExtension();
             $ImageFileName = 'image_' . Str::random(6) . "_" . time() . "_user." . $ImageExtension;
             $ImagePath = $Image->storeAs('images/users', $ImageFileName);
