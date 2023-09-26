@@ -36,10 +36,22 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
             Route::get('/', 'categories')->name('list');
             Route::post('/save', 'save')->name('save');
             Route::get('details/{id}', 'details')->name('details');
-            Route::post('update', 'update')->name('edit');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::get('update', 'update')->name('update');
             Route::delete('delte/{id}', 'delete')->name('delete');
             Route::get('fetch-categories', 'fetchCategories')->name('fetchCategories');
         });
+
+
+
+
+        // Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+        // Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+        // Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+        // Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+        // Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+        // Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
 
 
         route::name('orders.')->prefix('orders')->controller(OrderController::class)->group(function () {

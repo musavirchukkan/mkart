@@ -14,10 +14,7 @@
                     <div class="card">
                         <div class="card-header">
 
-                            {{-- <a class="btn btn-primary float-right d-flex" href={{ route('admin.products.categories') }}>
-                                <i class='bx bx-list-plus bx-sm icon'></i>Add
-                                Category
-                            </a> --}}
+
                             <button type="button" class="btn btn-primary float-right d-flex" data-bs-toggle="modal"
                                 data-bs-target="#categoryModal"><i class='bx bx-list-plus bx-sm icon'></i>
                                 Add Category
@@ -34,7 +31,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category Name</th>
-                                    {{-- <th scope="col">Total Products</th> --}}
+                                    <th scope="col">Total Products</th>
                                     <th scope="col">Actions</th>
 
 
@@ -45,9 +42,10 @@
                                 @foreach ($categories as $category)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td><img src="{{ $category->category_image }}" alt="" width=75 /></td>
+                                        <td><img src="{{ asset('storage/' . $category->category_image) }}"
+                                                alt="{{ $category->category_name }}" width="50"></td>
                                         <td>{{ $category->category_name }}</td>
-                                        {{-- <td>{{ $category->count }}</td> --}}
+                                        <td>{{ $category->products->count() }}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <a class="btn btn-icon btn-sm btn-ghost rounded-circle" href="#!"
@@ -59,12 +57,11 @@
                                                     <li><a class="dropdown-item d-flex align-items-center"
                                                             href={{ route('admin.categories.details', encrypt($category->category_id)) }}>Info</a>
                                                     </li>
-                                                    <li><a class="dropdown-item d-flex align-items-center"
-                                                            href={{ route('admin.categories.edit', encrypt($category->category_id)) }}>Edit</a>
+                                                    <li>
+                                                        <a class="dropdown-item d-flex align-items-center"
+                                                            data-toggle="modal" href="#categoryModal"
+                                                            data-category-id="{{ $category->id }}">Edit</a>
                                                     </li>
-                                                    {{-- <li><a class="dropdown-item d-flex align-items-center"
-                                                            href="{{ route('admin.products.delete', encrypt($product->product_id)) }}">Delete
-                                                        </a> --}}
 
                                                     <form method="POST"
                                                         action="{{ route('admin.categories.delete', encrypt($category->category_id)) }}">
@@ -105,6 +102,13 @@
     </div>
     {{-- modal --}}
     @include('admin.layout.modal')
+
+
+
+
+
+
     {{-- end modal --}}
+
 
 @endsection

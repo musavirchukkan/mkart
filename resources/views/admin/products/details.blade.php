@@ -36,38 +36,19 @@
                                             <div>
                                                 <div>
                                                     <!-- img -->
-                                                    <img src="{{ $product->image }}" alt="" class="img-fluid">
-                                                </div>
-
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <!-- img -->
                                                     <img src="{{ $product->main_image }}" alt="" class="img-fluid">
                                                 </div>
 
                                             </div>
-                                            <div>
+                                            @foreach ($product->images as $images)
                                                 <div>
-                                                    <!-- img -->
-                                                    <img src="{{ $product->image }}" alt="Image" class="img-fluid">
-                                                </div>
+                                                    <div>
+                                                        <!-- img -->
+                                                        <img src="{{ $images->image }}" alt="" class="img-fluid">
+                                                    </div>
 
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <!-- img -->
-                                                    <img src="{{ $product->image }}" alt="Image" class="img-fluid">
                                                 </div>
-
-                                            </div>
-                                            <div>
-                                                <div>
-                                                    <!-- img -->
-                                                    <img src="{{ $product->image }}" alt="Image" class="img-fluid">
-                                                </div>
-
-                                            </div>
+                                            @endforeach
 
                                         </div>
                                         <!-- product tools -->
@@ -76,33 +57,20 @@
                                                 <div class="col-3">
                                                     <div class="thumbnails-img">
                                                         <!-- img -->
-                                                        <img src="{{ $product->image }}" alt="Image">
-                                                    </div>
-                                                </div>
-                                                <div class="col-3">
-                                                    <div class="thumbnails-img">
-                                                        <!-- img -->
                                                         <img src="{{ $product->main_image }}" alt="Image">
                                                     </div>
                                                 </div>
-                                                <div class="col-3">
-                                                    <div class="thumbnails-img">
-                                                        <!-- img -->
-                                                        <img src="{{ $product->image }}" alt="Image">
+                                                @foreach ($product->images as $images)
+                                                    <div class="col-3">
+                                                        <div class="thumbnails-img">
+                                                            <!-- img -->
+                                                            <img src="{{ $images->image }}" alt="Image">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-3">
-                                                    <div class="thumbnails-img">
-                                                        <!-- img -->
-                                                        <img src="{{ $product->image }}" alt="Image">
-                                                    </div>
-                                                </div>
-                                                <div class="col-3">
-                                                    <div class="thumbnails-img">
-                                                        <!-- img -->
-                                                        <img src="{{ $product->image }}" alt="Image">
-                                                    </div>
-                                                </div>
+                                                @endforeach
+
+
+
                                             </div>
                                         </div>
                                     </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href={{asset('css/users/css/theme.min.css')}}>
+    <link rel="stylesheet" href={{ asset('css/users/css/theme.min.css') }}>
     @include('users.layout.head')
 
 </head>
@@ -55,7 +55,7 @@
                                         <div
                                             class="avatar-xxl avatar-indicators avatar-online me-2 position-relative d-flex justify-content-end align-items-end mt-n10">
                                             @if (Auth::user()->image)
-                                                <img src="{{ asset( Auth::user()->image) }}" alt="User Image"
+                                                <img src="{{ asset('storage/' . Auth::user()->image) }}" alt="User Image"
                                                     class="avatar-xxl
                                                     rounded-circle border border-2 ">
                                             @else
@@ -73,15 +73,16 @@
                                         <!-- text -->
                                         <div class="lh-1">
                                             <h2 class="mb-0">
-                                                {{Auth::user()->f_name}} {{Auth::user()->l_name}}
+                                                {{ Auth::user()->f_name }} {{ Auth::user()->l_name }}
                                                 <a href="#!" class="text-decoration-none">
                                                 </a>
                                             </h2>
-                                            <p class="mb-0 d-block">@ {{Auth::user()->username}}</p>
+                                            <p class="mb-0 d-block">@ {{ Auth::user()->username }}</p>
                                         </div>
                                     </div>
                                     <div>
-                                        <a href="{{route('user.profile.edit')}}" class="btn btn-outline-primary d-none d-md-block">Edit Profile</a>
+                                        <a href="{{ route('user.profile.edit') }}"
+                                            class="btn btn-outline-primary d-none d-md-block">Edit Profile</a>
                                     </div>
                                 </div>
                                 <!-- nav -->
@@ -121,17 +122,17 @@
         </div>
     </main>
 
-<!-- Footer Start -->
-@include('users.layout.footer')
-<!-- Footer End -->
+    <!-- Footer Start -->
+    @include('users.layout.footer')
+    <!-- Footer End -->
 
 
-<!-- Back to Top -->
-<a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-primary back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
 
-<!-- JavaScript Libraries -->
-@include('users.layout.scripts')
+    <!-- JavaScript Libraries -->
+    @include('users.layout.scripts')
 </body>
 
 </html>
