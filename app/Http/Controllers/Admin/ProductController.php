@@ -61,6 +61,7 @@ class ProductController
         // }
 
         // Redirect or return a response as needed
+
         return redirect()->route('admin.products.list')->with('message', 'Product Saved successfully');
     }
 

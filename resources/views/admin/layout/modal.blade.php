@@ -47,14 +47,14 @@
                 <form enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="category-name" class="col-form-label">Category Name :</label>
-                        <input type="text" name="category_name" class="form-control" id="category-name">
+                        <input type="text" name="category_name_inside" class="form-control" id="category-name">
                     </div>
                     <div class="form-group">
                         <!-- heading -->
                         <label for="category-image" class="col-form-label">Category Image :</label>
 
                         <!-- input -->
-                        <input type="file" name="category_image" id="category-image" class="form-control">
+                        <input type="file" name="category_image_inside" id="category-image" class="form-control">
                     </div>
                 </form>
             </div>

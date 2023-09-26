@@ -34,7 +34,8 @@
                                 @foreach ($users as $user)
                                     <tr>
                                         <td scope="row">{{ $loop->iteration }}</td>
-                                        <td>{{ $user->image }}</td>
+                                        <td><img src="{{ asset('storage/' . $user->image) }}" alt="{{ $user->user_name }}"
+                                                width="50" height="50"></td>
                                         <td>{{ $user->f_name }}</td>
                                         <td>{{ $user->l_name }}</td>
                                         <td>{{ $user->email }}</td>

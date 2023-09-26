@@ -22,12 +22,13 @@ class CategoryController
 
     public function save(Request $request)
     {
-        $request->validate([
-            'category_name' => 'required|unique:categories,category_name',
-            'category_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Add validation rules for the image
-        ]);
 
-        if ($request->hasFile('category_image')) { // Check if an image was uploaded
+        return $request;
+
+        return $request->file('category_image');
+
+
+        if ($request->category_image) { // Check if an image was uploaded
             $category_image = $request->file('category_image'); // Get the uploaded file
             $extension = $category_image->getClientOriginalExtension();
             $filename = Str::random(6) . "_" . time() . "_category." . $extension;
@@ -38,7 +39,7 @@ class CategoryController
 
         Category::create([
             'category_name' => $request->category_name,
-            'image' => $filepath, // Save the file path to the 'image' column
+            'category_image' => $filepath, // Save the file path to the 'image' column
         ]);
 
         return ['status' => 200, 'message' => 'Category Created Successfully'];

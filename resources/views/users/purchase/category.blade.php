@@ -12,14 +12,16 @@
                 <div class="row px-xl-5 pb-3">
                     @foreach ($categories as $category)
                         <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                            <a class="text-decoration-none" href="{{ route('product.category', encrypt($category->category_id))}}">
+                            <a class="text-decoration-none"
+                                href="{{ route('product.category', encrypt($category->category_id)) }}">
                                 <div class="cat-item d-flex align-items-center mb-4">
                                     <div class="overflow-hidden" style="width: 100px; height: 100px;">
-                                        <img class="img-fluid" src={{ asset($category->category_image) }} alt="">
+                                        <img class="img-fluid" src={{ asset('storage/' . $category->category_image) }}
+                                            alt="">
                                     </div>
                                     <div class="flex-fill pl-3">
                                         <h6>{{ $category->category_name }}</h6>
-                                        <small class="text-body">{{$category->products->count()}} Products</small>
+                                        <small class="text-body">{{ $category->products->count() }} Products</small>
                                     </div>
                                 </div>
                             </a>

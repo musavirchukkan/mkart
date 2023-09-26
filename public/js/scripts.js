@@ -34,7 +34,6 @@ $(function () {
 
     //         dataType: 'json',
 
-
     //         headers: {
     //             "X-CSRF-TOKEN": $("#productModal").attr("token"),
     //         },
@@ -70,18 +69,15 @@ $(function () {
     //     });
     // });
 
-
-
-
     $(".saveCategory").click(function () {
         var categoryName = $('input[name="category_name"]').val();
-        var categoryImage = $('input[name="category_image"]').val();
+        var categoryImage = $('input[name="category_image"]');
 
         $.ajax({
             type: "POST",
             url: $("#categoryModal").attr("save-action"),
             enctype: "multipart/form-data",
-            dataType: '',
+            dataType: "",
             headers: {
                 "X-CSRF-TOKEN": $("#categoryModal").attr("token"),
             },
@@ -108,8 +104,8 @@ $(function () {
     });
     // category inside
     $(".saveCategoryInside").click(function () {
-        var categoryName = $('input[name="category_name"]').val();
-        var categoryImage = $('input[name="category_image"]').val();
+        var categoryName = $('input[name="category_name_inside"]').val();
+        var categoryImage = $('input[name="category_image_inside"]').val();
 
         $.ajax({
             type: "POST",
@@ -125,75 +121,59 @@ $(function () {
             success: function (responce) {
                 // console.log(responce);
                 if (responce.status == 200) {
-                    $("#categoryModalInside").modal('hide');
+                    $("#categoryModalInside").modal("hide");
 
                     Swal.fire({
                         icon: "success",
                         title: "Success",
                         timer: 2000,
                         text: responce.message,
-
                     });
                 }
             },
         });
     });
 
-
     //delete confirm
 
-
-    $('.confirm-delete').click(function (event) {
+    $(".confirm-delete").click(function (event) {
         var form = $(this).closest("form");
         event.preventDefault();
         Swal.fire({
-            title: 'Are you sure?',
+            title: "Are you sure?",
             text: "You won't be able to revert this!",
-            icon: 'warning',
+            icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result) {
                 form.submit();
             }
         });
-
-
     });
 
-
-
-
-
-    $('select[name=category_id]').focus(function () {
+    $("select[name=category_id]").focus(function () {
         var category_id = $(this).val();
         $.ajax({
             type: "GET",
             url: $("#productModal").attr("fetch-categories"),
-            dataType: 'JSON',
+            dataType: "JSON",
             success: function (response) {
-
-                var optionHtml = '';
+                var optionHtml = "";
                 for (let i = 0; i < response.data.length; i++) {
                     const element = response.data[i];
-                    optionHtml += `<option value='` + element.category_id + `'>` + element.category_name + `</option>`;
-
+                    optionHtml +=
+                        `<option value='` +
+                        element.category_id +
+                        `'>` +
+                        element.category_name +
+                        `</option>`;
                 }
                 // console.log(optionHtml);
-                $('select[name=category_id]').html(optionHtml);
-
-
+                $("select[name=category_id]").html(optionHtml);
             },
         });
-
     });
-
 });
-
-
-
-
-
-
