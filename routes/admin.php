@@ -36,7 +36,8 @@ route::name('admin.')->prefix('admin')->controller(LoginController::class)->grou
             Route::get('/', 'categories')->name('list');
             Route::post('/save', 'save')->name('save');
             Route::get('details/{id}', 'details')->name('details');
-            Route::post('update', 'update')->name('edit');
+            Route::get('edit/{id}', 'edit')->name('edit');
+            Route::get('update', 'update')->name('update');
             Route::delete('delte/{id}', 'delete')->name('delete');
             Route::get('fetch-categories', 'fetchCategories')->name('fetchCategories');
         });

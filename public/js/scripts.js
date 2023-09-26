@@ -108,8 +108,8 @@ $(function () {
     });
     // category inside
     $(".saveCategoryInside").click(function () {
-        var categoryName = $('input[name="category_name_inside"]').val();
-        var categoryImage = $('input[name="category_image_inside"]').val();
+        var categoryName = $('input[name="category_name"]').val();
+        var categoryImage = $('input[name="category_image"]').val();
 
         $.ajax({
             type: "POST",

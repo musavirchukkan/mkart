@@ -34,7 +34,7 @@
                                     <th scope="col">#</th>
                                     <th scope="col">Image</th>
                                     <th scope="col">Category Name</th>
-                                    {{-- <th scope="col">Total Products</th> --}}
+                                    <th scope="col">Total Products</th>
                                     <th scope="col">Actions</th>
 
 
@@ -47,7 +47,7 @@
                                         <td scope="row">{{ $loop->iteration }}</td>
                                         <td><img src="{{ $category->category_image }}" alt="" width=75 /></td>
                                         <td>{{ $category->category_name }}</td>
-                                        {{-- <td>{{ $category->count }}</td> --}}
+                                        <td>{{ $category->count }}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <a class="btn btn-icon btn-sm btn-ghost rounded-circle" href="#!"
@@ -60,11 +60,16 @@
                                                             href={{ route('admin.categories.details', encrypt($category->category_id)) }}>Info</a>
                                                     </li>
                                                     <li><a class="dropdown-item d-flex align-items-center"
+                                                            data-bs-toggle="modal" data-bs-target="#categoryModal"
                                                             href={{ route('admin.categories.edit', encrypt($category->category_id)) }}>Edit</a>
                                                     </li>
                                                     {{-- <li><a class="dropdown-item d-flex align-items-center"
+                                                            href={{ route('admin.categories.edit', encrypt($category->category_id)) }}>Edit</a>
+                                                    </li> --}}
+                                                    {{-- <li><a class="dropdown-item d-flex align-items-center"
                                                             href="{{ route('admin.products.delete', encrypt($product->product_id)) }}">Delete
-                                                        </a> --}}
+                                                        </a>  --}}
+
 
                                                     <form method="POST"
                                                         action="{{ route('admin.categories.delete', encrypt($category->category_id)) }}">
