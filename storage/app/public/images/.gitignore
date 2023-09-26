@@ -2,4 +2,6 @@
 !.gitignore
 !/categories
 !/products
-!gg
+!/advertisments
+!/offers
+!/users
