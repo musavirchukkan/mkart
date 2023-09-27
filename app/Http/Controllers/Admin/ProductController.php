@@ -99,16 +99,35 @@ class ProductController
         return redirect()->route('admin.products.list')->with('message', 'Product Updated Successfully');
     }
 
+
     public function delete($id)
     {
         $product = Product::find(decrypt($id));
 
-        if (!empty($product->image)) {
-            Storage::delete('images/products/' . $product->image);
+        if (empty($product)) {
+            return response()->json(['status' => 404, 'message' => 'Product not found'], 404);
         }
-        $product->delete();
-        sleep(1);
 
-        return redirect()->route('admin.products.list');  //->with('message', 'Product Deleted Successfully')
+        // Get associated images
+        $productImages = $product->images;
+
+        // Delete associated images from the product_images table
+        $product->images()->delete();
+
+        if (!empty($product->main_image)) {
+            // Delete the main image from the file system
+            Storage::delete('storage/' . $product->image);
+        }
+
+        // Delete other associated images from the file system
+        foreach ($productImages as $productImage) {
+            if (!empty($productImage->image)) {
+                Storage::delete('storage/' . $productImage->image);
+            }
+        }
+
+        $product->delete();
+
+        return response()->json(['status' => 200, 'message' => 'Product and associated images deleted successfully'], 200);
     }
 }

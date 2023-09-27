@@ -139,19 +139,68 @@ $(function () {
     $(".confirm-delete").click(function (event) {
         var form = $(this).closest("form");
         event.preventDefault();
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result) {
-                form.submit();
-            }
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger",
+            },
+            buttonsStyling: false,
         });
+
+        swalWithBootstrapButtons
+            .fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "Yes, delete it!",
+                cancelButtonText: "No, cancel!",
+                reverseButtons: true,
+            })
+            .then((result) => {
+                if (result.isConfirmed) {
+                    // Make an AJAX DELETE request to delete the file
+                    $.ajax({
+                        type: "DELETE",
+                        url: form.attr("action"), // Use the form's action attribute as the URL
+                        data: form.serialize(),
+                        success: function (response) {
+                            if (response.status === 200) {
+                                swalWithBootstrapButtons.fire(
+                                    "Deleted!",
+                                    response.message,
+                                    "success"
+                                );
+                                setTimeout(function () {
+                                    location.reload();
+                                }, 2000);
+                                // You can add additional logic here, e.g., updating the UI
+                            } else {
+                                // Handle other response statuses (e.g., 404, 500, etc.) here
+                                swalWithBootstrapButtons.fire(
+                                    "Error",
+                                    response.message,
+                                    "error"
+                                );
+                            }
+                        },
+                        error: function () {
+                            // Handle AJAX error here
+                            swalWithBootstrapButtons.fire(
+                                "Error",
+                                "Failed to delete the file.",
+                                "error"
+                            );
+                        },
+                    });
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire(
+                        "Cancelled",
+                        "Your Product is safe :)",
+                        "error"
+                    );
+                }
+            });
     });
 
     $("select[name=category_id]").focus(function () {
