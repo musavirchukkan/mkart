@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class LoginController
 {
+
+    public function index()
+    {
+        return redirect()->route('admin.login');
+    }
+
     public function login()
     {
         return view('admin.auth.login');

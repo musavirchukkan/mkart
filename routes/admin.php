@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\ProductController;
 use Illuminate\Support\Facades\Route;
 
 route::name('admin.')->prefix('admin')->controller(LoginController::class)->group(function () {
+    Route::get('/', 'index')->name('index');
     Route::get('login', 'login')->name('login');
     Route::post('do-login', 'doLogin')->name('do.login');
     Route::get('forgot-password', 'forgotPassword')->name('forgot.password');
